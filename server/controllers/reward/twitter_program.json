@@ -1,0 +1,1060 @@
+{
+  "version": "0.1.0",
+  "name": "twitter_program",
+  "instructions": [
+    {
+      "name": "initialize",
+      "accounts": [
+        {
+          "name": "admin",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "globalAuthority",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "initializeUserPool",
+      "accounts": [
+        {
+          "name": "client",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "globalAuthority",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pool",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clientAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "poolType",
+          "type": "string"
+        },
+        {
+          "name": "projectName",
+          "type": "string"
+        },
+        {
+          "name": "startTime",
+          "type": "string"
+        },
+        {
+          "name": "timeLimit",
+          "type": "u64"
+        },
+        {
+          "name": "funds",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "updateUserPool",
+      "accounts": [
+        {
+          "name": "client",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "globalAuthority",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pool",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "feeAcc",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "clientAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "poolType",
+          "type": "string"
+        },
+        {
+          "name": "projectName",
+          "type": "string"
+        },
+        {
+          "name": "startTime",
+          "type": "string"
+        },
+        {
+          "name": "timeLimit",
+          "type": "u64"
+        },
+        {
+          "name": "isPaused",
+          "type": "bool"
+        },
+        {
+          "name": "isCompleted",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "updateUserPoolAdmin",
+      "accounts": [
+        {
+          "name": "admin",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "client",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "globalAuthority",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pool",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clientAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "poolType",
+          "type": "string"
+        },
+        {
+          "name": "projectName",
+          "type": "string"
+        },
+        {
+          "name": "startTime",
+          "type": "string"
+        },
+        {
+          "name": "timeLimit",
+          "type": "u64"
+        },
+        {
+          "name": "isPaused",
+          "type": "bool"
+        },
+        {
+          "name": "isCompleted",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "fundUserPool",
+      "accounts": [
+        {
+          "name": "client",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "pool",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clientAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "poolType",
+          "type": "string"
+        },
+        {
+          "name": "projectName",
+          "type": "string"
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "createTweetRaid",
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "client",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tweetData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "usersForLike",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "usersForRetweet",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "usersForComment",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "globalAuthority",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pool",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "globalBump",
+          "type": "u8"
+        },
+        {
+          "name": "poolType",
+          "type": "string"
+        },
+        {
+          "name": "projectName",
+          "type": "string"
+        },
+        {
+          "name": "tweetId",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "createTweet",
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "client",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tweetData",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "globalAuthority",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pool",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "globalBump",
+          "type": "u8"
+        },
+        {
+          "name": "poolType",
+          "type": "string"
+        },
+        {
+          "name": "projectName",
+          "type": "string"
+        },
+        {
+          "name": "tweetId",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "claimReward",
+      "accounts": [
+        {
+          "name": "client",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "globalAuthority",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pool",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "myId",
+          "type": "u128"
+        },
+        {
+          "name": "myId2",
+          "type": "u128"
+        },
+        {
+          "name": "globalBump",
+          "type": "u8"
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "claimRewardInit",
+      "accounts": [
+        {
+          "name": "client",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "globalAuthority",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pool",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userAta",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "poolMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "myId",
+          "type": "u128"
+        },
+        {
+          "name": "myId2",
+          "type": "u128"
+        },
+        {
+          "name": "globalBump",
+          "type": "u8"
+        },
+        {
+          "name": "projectName",
+          "type": "string"
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "likeTweet",
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "client",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "globalAuthority",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "usersForLike",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "globalBump",
+          "type": "u8"
+        },
+        {
+          "name": "projectName",
+          "type": "string"
+        },
+        {
+          "name": "tweetId",
+          "type": "string"
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "retweet",
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "client",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "globalAuthority",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "usersForRetweet",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "globalBump",
+          "type": "u8"
+        },
+        {
+          "name": "projectName",
+          "type": "string"
+        },
+        {
+          "name": "tweetId",
+          "type": "string"
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "commentTweet",
+      "accounts": [
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "client",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "globalAuthority",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "usersForComment",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "globalBump",
+          "type": "u8"
+        },
+        {
+          "name": "projectName",
+          "type": "string"
+        },
+        {
+          "name": "tweetId",
+          "type": "string"
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "withdraw",
+      "accounts": [
+        {
+          "name": "client",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "globalAuthority",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "poolMint",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "clientAta",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "globalBump",
+          "type": "u8"
+        },
+        {
+          "name": "poolType",
+          "type": "string"
+        },
+        {
+          "name": "projectName",
+          "type": "string"
+        },
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "MyTweet",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "userKey",
+            "type": "publicKey"
+          },
+          {
+            "name": "clientKey",
+            "type": "publicKey"
+          },
+          {
+            "name": "projectName",
+            "type": "string"
+          },
+          {
+            "name": "paid",
+            "type": "bool"
+          },
+          {
+            "name": "tweetId",
+            "type": "string"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MyTweetRaid",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "userKey",
+            "type": "publicKey"
+          },
+          {
+            "name": "clientKey",
+            "type": "publicKey"
+          },
+          {
+            "name": "projectName",
+            "type": "string"
+          },
+          {
+            "name": "paid",
+            "type": "bool"
+          },
+          {
+            "name": "tweetId",
+            "type": "string"
+          },
+          {
+            "name": "liked",
+            "type": "publicKey"
+          },
+          {
+            "name": "retweeted",
+            "type": "publicKey"
+          },
+          {
+            "name": "commented",
+            "type": "publicKey"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UserPool",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "clientKey",
+            "type": "publicKey"
+          },
+          {
+            "name": "splToken",
+            "type": "publicKey"
+          },
+          {
+            "name": "projectName",
+            "type": "string"
+          },
+          {
+            "name": "startTime",
+            "type": "string"
+          },
+          {
+            "name": "timeLimit",
+            "type": "u64"
+          },
+          {
+            "name": "funds",
+            "type": "u64"
+          },
+          {
+            "name": "totalUsers",
+            "type": "u64"
+          },
+          {
+            "name": "createdAt",
+            "type": "i64"
+          },
+          {
+            "name": "isPaused",
+            "type": "bool"
+          },
+          {
+            "name": "isCompleted",
+            "type": "bool"
+          }
+        ]
+      }
+    },
+    {
+      "name": "GlobalPool",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "superAdmin",
+            "type": "publicKey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UsersForLike",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "users",
+            "type": {
+              "array": ["publicKey", 500]
+            }
+          },
+          {
+            "name": "total",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UsersForRetweet",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "users",
+            "type": {
+              "array": ["publicKey", 500]
+            }
+          },
+          {
+            "name": "total",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UsersForComment",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "users",
+            "type": {
+              "array": ["publicKey", 500]
+            }
+          },
+          {
+            "name": "total",
+            "type": "u64"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "SubscriptionExpired",
+      "msg": "Your subscription has been expired"
+    },
+    {
+      "code": 6001,
+      "name": "RaffleEnded",
+      "msg": "Raffle has ended"
+    },
+    {
+      "code": 6002,
+      "name": "AlreadyLiked",
+      "msg": "User has already liked the tweet"
+    },
+    {
+      "code": 6003,
+      "name": "AlreadyRetweeted",
+      "msg": "User has already retweeted this tweet"
+    },
+    {
+      "code": 6004,
+      "name": "AlreadyCommented",
+      "msg": "User has already commented on this tweet"
+    }
+  ],
+  "metadata": {
+    "address": "HG78SnP76CMbvUsMuu8KvPPbzKuJJenryHVvCzPkMN2B"
+  }
+}

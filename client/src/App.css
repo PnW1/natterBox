@@ -1,0 +1,1663 @@
+@font-face {
+  font-family: "raleway";
+  src: url("./assets/fonts/Raleway-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+  font-family: "lato";
+  src: url("./assets/fonts/lato/Lato-Black.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roclette Pro";
+  src: url("./assets/fonts/Roclette/WebFonts/Normal/RoclettePro-SemiBold.woff")
+    format("truetype");
+}
+@font-face {
+  font-family: "Roclette light";
+  src: url("./assets/fonts/Roclette/WebFonts/Normal/RoclettePro-Light.woff")
+    format("truetype");
+}
+
+* {
+  font-family: Poppins;
+}
+
+/* =============== dashboard style =================== */
+.header_name {
+  font-family: Roclette Pro !important;
+  letter-spacing: 0.04em !important;
+  font-size: 28px !important;
+  font-weight: 600;
+}
+.available_to_claim {
+  font-family: Roclette Pro !important;
+  letter-spacing: 0.04em !important;
+  font-size: 30px;
+  font-weight: 600;
+}
+.profile_dashboard_wallet_btns {
+  font-family: Roclette Pro !important;
+  letter-spacing: 0.04em !important;
+}
+
+.btn_sub {
+  color: #00acee !important;
+  font-family: Roclette Pro !important;
+  letter-spacing: 0.04em !important;
+  font-size: 14px;
+}
+.btn_inner_percentage {
+  color: #47ddfc;
+}
+.transaction_history,
+.history {
+  font-family: Roclette Pro !important;
+  letter-spacing: 0.04em !important;
+  color: white;
+  font-size: 24px;
+}
+
+.signin_twitter_div h2 {
+  font-family: Roclette Pro !important;
+  letter-spacing: 0.04em !important;
+}
+.project_form label {
+  font-family: Poppins !important;
+}
+.project_form input {
+  font-family: Poppins !important;
+}
+.project_info {
+  font-family: Roclette Pro !important;
+  letter-spacing: 0.04em !important;
+}
+.top-raiders {
+  font-family: Roclette Pro !important;
+  letter-spacing: 0.04em !important;
+}
+
+.edit-icon {
+  width: 28.58px;
+  height: 28.58px;
+  margin-left: 10px !important;
+  background: radial-gradient(50% 50% at 50% 50%, #00acee 0%, #47ddfc 100%);
+  border-radius: 28.5753px;
+}
+.signup-background {
+  background-color: aquamarine !important;
+}
+
+.navBar-background {
+  background-color: #7fffd4 !important;
+}
+.raids_card {
+  font-family: raleway !important;
+}
+.active_icon2 {
+  width: 5px;
+  height: 5px;
+  left: 3px;
+  background: #e81f1f;
+  box-shadow: 0px 0px 4px #e81f1f;
+  transform: rotate(43.68deg);
+}
+.active_icon {
+  width: 5px;
+  height: 5px;
+  left: 3px;
+  background: #5dca37;
+  box-shadow: 0px 0px 4px;
+}
+
+.raid_btn {
+  background: linear-gradient(180deg, #018ec5 0%, #37b9ea 100%);
+  box-shadow: inset -6px -6px 8px rgba(5, 97, 132, 0.7);
+  border-radius: 8px;
+}
+
+.dasbboard_icons {
+  min-width: 60px !important;
+}
+/* =============== */
+
+/* .penta {
+  -webkit-clip-path: polygon(
+    24.5% 0,
+    100% 0,
+    100% 94%,
+    94% 100%,
+    4% 100%,
+    0 95%,
+    0 18%
+  );
+  clip-path: polygon(
+    24.5% 0,
+    100% 0,
+    100% 98%,
+    97% 100%,
+    4% 100%,
+    0 98%,
+    0 15.7%
+  );
+
+  min-height: 601px !important;
+  left: 0px;
+  top: 0px;
+
+} */
+
+/* .triangle {
+  -webkit-clip-path: polygon(0 1%, 0% 100%, 100% 0);
+  clip-path: polygon(0 1%, 0% 100%, 100% 0);
+  position: absolute;
+  width: 20.5%;
+  height: 81.63px;
+  left: 15px;
+  top: 16px;
+} */
+
+.mail_logo {
+  /* left: 50px !important; */
+  transform: translate(8px, 10px);
+}
+
+.winners_btn {
+  background: linear-gradient(180deg, #696969 0%, #303030 100%);
+  box-shadow: inset -6px -6px 8px rgba(33, 33, 33, 0.7);
+  border-radius: 8px;
+  padding: 12px 32px !important;
+}
+/* ===================== */
+
+/* .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+  height: 0.15rem !important;
+} */
+/* .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+  color: #ffffff !important;
+  font-size: 0.8rem !important;
+  line-height: 0.5rem !important;
+} */
+
+.form-select {
+  /* border: 2px solid gold; */
+  color: white;
+  padding-top: unset !important;
+  padding-bottom: unset !important;
+  height: 2.4rem !important;
+  background-color: #2c2b2b;
+  border-color: #2c2b2b;
+}
+#privateToggler {
+  top: 10;
+  left: 3;
+}
+
+#steps_to_folow {
+  font-size: 40px;
+}
+
+#headings {
+  background: linear-gradient(180deg, #3a3a3a 0%, rgba(58, 58, 58, 0) 100%);
+  border-radius: 8.41921px;
+}
+.dashboard_main_row {
+  --bs-gutter-x: 0rem !important;
+}
+.nav-link {
+  display: flex !important;
+  gap: 10px;
+  padding-left: 50px !important;
+}
+.sidebar-links:hover {
+  color: #00acee !important;
+  border-radius: 5%;
+}
+
+.invoiceLogoSize {
+  height: 100px;
+  width: auto;
+}
+
+.sign_in_twitter {
+  border-top-right-radius: 20px;
+}
+/* home screen style  */
+
+.MenuItem {
+  /* background-image: url(${Images.LandingPageimage}); */
+  height: "100vh";
+  background-size: "100% 100%";
+  padding-top: "20px";
+  background-repeat: "no-repeat";
+}
+.banner {
+  background-image: url("../src/assets/images/LandingPageimage.png");
+  height: 100vh;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.check_icon {
+  font-size: 30px;
+  color: #00acee;
+}
+/* .check_icon:visited{
+  color: black !important;
+  background-color: #333333 !important;
+}
+.check_icon:focus{
+  color: black !important;
+} */
+
+.check_icon:active {
+  color: black !important;
+}
+.tableContainer {
+  overflow-x: auto !important;
+  width: 100% !important;
+  margin-right: auto;
+  margin-left: auto;
+}
+.pub_key {
+  max-width: 125px;
+  min-width: 125px;
+  padding: 0 !important;
+  overflow-x: auto;
+  white-space: nowrap;
+  text-align: center !important;
+}
+.back {
+  /* background-image: url(${Images.twetback}); */
+  background-size: "100% 100%";
+  background-repeat: "no-repeat";
+  padding-top: "60px";
+  padding-bottom: "60px";
+  padding-left: "20px";
+  padding-right: "20px";
+  color: "white";
+}
+.picture {
+  /* background-image: url(${Images.picture}); */
+  background-size: "100% 100%";
+
+  background-repeat: "no-repeat";
+  padding-top: "60px";
+  padding-bottom: "60px";
+  margin-top: "60px";
+  margin-bottom: "40px";
+  color: "white";
+}
+.backs {
+  padding-top: "60px";
+  padding-bottom: "60px";
+  padding-left: "20px";
+  padding-right: "20px";
+  color: "black";
+}
+
+.FontFamilyGet {
+  font-family: "Raleway";
+}
+.formbuton {
+  background-color: "#00ACEE";
+  color: "#FFFFFF";
+  padding: "10px 20px";
+
+  border-top-left-radius: "30px";
+  border-bottom-right-radius: "30px";
+}
+.formbutons {
+  background-color: "#00ACEE";
+  color: "#FFFFFF";
+  padding: "10px 0px";
+  margin-left: "15px !important";
+
+  border-top-left-radius: "30px";
+  border-bottom-right-radius: "30px";
+}
+.Paragraph {
+  font-size: 45px;
+}
+.secondoverflow-hidden {
+  margin-top: "50px";
+}
+
+.gridcenter {
+  position: "absolute";
+  top: "50%";
+  left: "50%";
+  transform: " translate(-50%, -50%)";
+}
+
+/* ================home style end =============== */
+
+/* ------------------------------------------------------------------------------------------ */
+
+.css-1q6at85-MuiInputBase-root-MuiOutlinedInput-root {
+  font-size: 0.7rem !important;
+}
+.signup_list {
+  font-size: 0.7rem !important;
+}
+.choose_reward {
+  font-size: 0.7rem !important;
+  font-weight: 600 !important;
+}
+.home_text {
+  font-family: raleway;
+  font-size: 40px;
+  color: #333333;
+  margin-bottom: 0px !important;
+}
+.main_container {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.css-pwngrv-MuiPaper-root-MuiCard-root {
+  color: black !important;
+}
+
+/* @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap'); */
+
+.registeration {
+  color: #ffffff;
+  border-radius: 30px !important;
+  font-size: 15px;
+  font-weight: 700 !important;
+  padding: 10px 32px !important;
+  margin: auto 0;
+  background: #00acee !important;
+  box-shadow: inset -6px -6px 8px rgba(69, 55, 185, 0.7);
+  border-radius: 60px;
+  font-family: Poppins !important;
+  gap: 10px;
+}
+.card_des {
+  font-family: Poppins !important;
+  font-weight: 500 !important;
+}
+.card_title {
+  margin: 10px 0 10px 0;
+  font-family: raleway !important;
+  font-weight: 600 !important;
+}
+.reward_text {
+  font-family: raleway !important;
+  font-weight: 600 !important;
+  font-size: 37px;
+  display: flex !important;
+  justify-content: center !important;
+}
+.reward_subtext {
+  font-family: raleway !important;
+  font-weight: 600 !important;
+  font-size: 40px;
+  display: flex !important;
+  justify-content: center !important;
+  color: #00acee;
+}
+.reward_heading {
+  font-family: "Roclette Pro" !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 90px;
+  display: flex !important;
+  justify-content: center !important;
+  color: white;
+}
+.reward_subheading {
+  font-family: Roclette light !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  font-size: 90px;
+  display: flex !important;
+  justify-content: center !important;
+  color: #00acee;
+}
+.reward_desc {
+  font-family: "lato" !important;
+  font-size: 17px;
+  margin-bottom: 20px !important;
+  display: flex !important;
+  justify-content: center !important;
+  text-align: center;
+  font-weight: 700 !important;
+  color: #333333 !important;
+}
+.formback {
+  background-image: url("../src/assets/images/formimg.png");
+  background-repeat: no-repeat;
+  padding: 20px;
+  min-height: auto;
+  background-size: 100% 100%;
+  max-width: 500px !important;
+  margin-bottom: 12px !important;
+}
+.signup_main_container {
+  margin-left: -9px !important;
+}
+.signuptypgraph {
+  background: #f9f9f9;
+  padding: 0px 5px 10px 10px;
+  width: 100% !important;
+}
+/* .radiotext{
+ 
+  font-size: 100px !important;
+} */
+.MuiFormControlLabel-label {
+  font-size: 12px !important;
+}
+.formbutonn {
+  margin-bottom: 12px !important;
+}
+.sidebar {
+  background-color: black;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.css-cveggr-MuiListItemIcon-root {
+  color: white !important;
+}
+.divider {
+  background: #333333;
+  margin-left: 22px !important;
+  margin-right: 22px !important;
+}
+.divider2 {
+  background: #333333;
+  margin-left: 22px !important;
+  margin-right: 22px !important;
+  margin-top: 34px !important;
+  margin-bottom: 34px !important;
+}
+.list {
+  margin-top: 150px !important;
+  margin-bottom: 150px !important;
+}
+.signin_twitter_div {
+  width: 50%;
+}
+.btn {
+  width: 40%;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border-color: "#00ACEE" !important;
+  text-align: center;
+  font-family: Poppins !important;
+  background: linear-gradient(
+    180deg,
+    rgba(28, 28, 28, 0.47) 0%,
+    rgba(74, 75, 75, 0.58) 100%
+  );
+  border-radius: 40px;
+  /* font-size: small !important; */
+  /* display: flex;
+  justify-content: center;
+  background-color: black;
+  margin-left: 29px !important;
+  margin-right: 29px !important; ;
+  margin-top: 96px !important;
+  font-size: small !important; */
+}
+.icon {
+  display: flex;
+  justify-content: center;
+  padding: 5px !important;
+}
+.icons {
+  margin-left: 4px !important;
+  margin-right: 4px !important;
+  font-size: large !important;
+}
+.break {
+  border-right: 1px solid lightgray;
+}
+.root {
+  padding: 0 !important;
+}
+.iconwidth {
+  min-width: 38px !important;
+}
+.header {
+  background-color: #ececec !important;
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+}
+.imagebanner {
+  width: 100% !important;
+
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+}
+.flexrow {
+  display: flex;
+  justify-content: space-between;
+}
+.profiledetail {
+  display: flex;
+}
+.profileimages {
+  margin-top: -60px !important;
+  margin-left: 10px !important;
+
+  /* transform: translate(10%,-40%) !important; */
+}
+
+.editprofiles {
+  border-top-left-radius: 15px !important ;
+  border-bottom-right-radius: 15px !important;
+  padding-left: 0px;
+  padding-right: 0px;
+  /* margin-bottom: 15px !important; */
+  background-color: #00acee !important;
+  font-size: small !important;
+}
+.sharebutton {
+  color: gray !important;
+  font-size: 30px;
+  /* margin-left: 5px !important; */
+}
+
+.search_and_voice {
+  display: flex;
+}
+.sharebuttons {
+  color: white !important;
+  min-width: 45px !important;
+}
+.sharebuttonn {
+  color: white !important;
+  font-size: 30px;
+  margin-left: 5px !important;
+  background-color: black;
+  border-radius: 5px !important;
+}
+.btnedit {
+  margin-right: 70px !important;
+  margin-top: 5px !important;
+}
+.maindetail {
+  background: #f9f9f9;
+}
+.tablet {
+  border: 2px solid !important;
+}
+.tabsicon {
+  border-bottom: 2px solid black !important ;
+}
+.iconbar {
+  color: #00acee;
+  font-size: 60px !important;
+}
+.dropdown {
+  border: black !important;
+  border-radius: 5px !important;
+  margin-bottom: 4% !important;
+}
+.tabtext {
+  font-weight: bold !important;
+  font-size: large !important;
+  /* color: black !important; */
+  text-transform: none !important;
+}
+.profilename {
+  font-weight: bold !important;
+  color: black !important;
+  text-transform: none !important;
+}
+.placeholder {
+  font-style: normal;
+}
+.iconback {
+  background-color: gray;
+  padding-top: 5px !important;
+  padding-bottom: 2px !important;
+  border-radius: 5px !important;
+}
+.myprofile {
+  font-weight: bold !important;
+  margin-left: 5px !important;
+}
+.voice {
+  background-color: #00acee !important;
+  padding: 2px !important;
+  border-radius: 30px !important;
+  font-size: 30px !important;
+}
+
+.progress {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.appBar_main {
+  width: 100%;
+  /* background-color: aqua; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.listtext {
+  font-weight: bold !important;
+}
+.settingcontent {
+  font-weight: bold !important;
+  font-size: large !important;
+  /* color: black !important; */
+  text-transform: none !important;
+  background-color: white !important;
+  padding: 14px;
+  width: 100% !important;
+}
+.walletbtn {
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-bottom: 15px !important;
+
+  color: #ffffff;
+  border-radius: 30px !important;
+  font-size: 15px;
+  font-weight: 700 !important;
+
+  /* width: 184px !important; */
+  margin: auto 0;
+
+  font-family: Poppins !important;
+  /* justify-content: center; */
+
+  /* font-size: small !important; */
+}
+.iconBtn {
+  color: white !important;
+}
+.downloadbtn {
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-bottom: 15px !important;
+
+  /* justify-content: center; */
+  background-color: gainsboro !important;
+
+  font-size: small !important;
+  color: black !important;
+}
+.downloadicon {
+  font-size: large !important;
+  margin-right: 5px !important;
+}
+
+/* stats style  */
+
+/* header style  */
+.header_left {
+  margin-left: 30px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header_right {
+  margin-right: 30px !important;
+}
+.wallet-icon {
+  font-size: 55px;
+}
+.header-icon {
+  font-size: 30px;
+}
+.wallet-btn {
+  background: linear-gradient(
+    180deg,
+    rgba(75, 60, 189, 0.22) 0%,
+    rgba(82, 68, 195, 0.33) 100%
+  );
+  border-radius: 40px !important;
+  text-transform: capitalize !important;
+  /* font-size: 12px !important; */
+  /* width: 155px !important; */
+}
+.unlink_btn {
+  background-color: #00acee !important;
+}
+.wallet_disconnect {
+  background: linear-gradient(
+    180deg,
+    rgba(75, 60, 189, 0.22) 0%,
+    rgba(82, 68, 195, 0.33) 100%
+  );
+  border-radius: 40px !important;
+  width: 75% !important;
+  height: 38px !important;
+  /* margin-bottom: 25px; */
+}
+/* ======= userDashboard stytle =============  */
+.dashboard_tabs {
+  background-color: #2c2b2b !important;
+  margin-right: 10px !important;
+  font-family: lato !important;
+}
+
+/* ============== userDashboard style end ============ */
+
+.css-83ijpv-MuiTypography-root {
+  color: white !important;
+  font-size: 10px !important;
+}
+/* ===== reward and account cards style =======  */
+.card_rewards {
+  background-image: url("../src/assets/images/Rectangle.png");
+  background-position: center;
+  background-size: 100%;
+  background-color: unset !important;
+}
+.rewards_card {
+  /* box-shadow: 5px 10px 17px rgba(0, 0, 0, 0.25) !important; */
+  background: linear-gradient(
+    98.08deg,
+    rgba(24, 24, 24, 0.04) 6.13%,
+    rgba(49, 49, 49, 0.56) 103.17%
+  ) !important;
+  box-shadow: inset 26px -26px 33px rgba(0, 0, 0, 0.18) !important;
+  border-radius: 8px !important;
+
+  text-align: center;
+  padding: 19px 16px 19px 10px;
+  /* background-color: #333333 !important; */
+  color: white;
+}
+.rewards_card2 {
+  box-shadow: 5px 10px 17px rgba(0, 0, 0, 0.25) !important;
+
+  /* text-align: center;  */
+  padding-top: 50px;
+  padding-bottom: 20px;
+  background-color: #333333 !important;
+  color: white;
+}
+.rewardCards_solana_btn {
+  background: linear-gradient(180deg, #018ec5 0%, #37b9ea 100%);
+  box-shadow: inset -6px -6px 8px rgba(5, 97, 132, 0.7) !important;
+  border-radius: 20px 0px;
+  padding: 10px 32px !important;
+  text-transform: capitalize !important;
+  border-bottom-right-radius: 25px !important;
+  border-top-left-radius: 25px !important;
+  color: white !important;
+}
+
+/* ===== style end ========= */
+
+@media screen and (max-width: 768px) {
+  .side_bar {
+    position: absolute !important;
+  }
+  .pub_key {
+    max-width: 80px !important;
+    min-width: 80px !important;
+  }
+  .sharebuttons {
+    min-width: 20px !important;
+  }
+  .editprofiles {
+    font-size: 7px !important;
+  }
+  .form-label {
+    font-size: 10px !important;
+    color: white !important;
+  }
+  #form-label {
+    font-size: 10px !important;
+  }
+  .allUser_public_key {
+    font-size: 7px !important;
+  }
+  .style_font {
+    font-size: 10px !important;
+  }
+
+  .profile_img {
+    width: 80px !important;
+    height: 80px !important;
+  }
+  .profileimages {
+    margin-top: -40px !important;
+  }
+  .profilename {
+    font-size: 16px !important;
+  }
+  .sub_profilename {
+    font-size: 12px !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  /* .header-icon{
+    display: none;
+  } */
+  .dashboard_tabs {
+    font-size: 10px !important;
+    padding: 5px !important;
+  }
+  .footer-img {
+    /* display: none !important; */
+    width: 30% !important;
+  }
+  #footer_para {
+    font-size: 14px !important;
+  }
+
+  #reward_pro_para {
+    font-size: 10px !important;
+  }
+
+  .wallet-btn {
+    padding: 10px !important;
+    font-size: 8px !important;
+    /* width: 80px !important; */
+  }
+  .profile_img {
+    width: 80px !important;
+    height: 80px !important;
+  }
+  .settingcontent {
+    padding: 5px !important;
+  }
+
+  .profilename {
+    font-size: 16px !important;
+  }
+  .sub_profilename {
+    font-size: 12px !important;
+  }
+
+  .sidebar_items {
+    display: none !important;
+  }
+  .iconwidth {
+    margin: 0 auto !important;
+    font-size: 20px !important;
+    justify-content: center !important;
+  }
+
+  .btnedit {
+    margin-right: 10px !important;
+    margin-top: 5px !important;
+  }
+  .btn {
+    font-size: 8px !important;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+  }
+
+  .appbar_icons {
+    display: none;
+  }
+  .tabtext {
+    font-size: 8px !important;
+    min-width: unset !important;
+    max-width: 60px !important;
+  }
+  /* .tab_main{
+    width: 80%;
+  } */
+
+  .signuptext {
+    font-size: 20px !important;
+    text-align: center;
+  }
+}
+
+/* @media (min-width: 601px) {
+.search_and_voice{
+  transform: translateX(60%);
+}
+} */
+
+@media (min-width: 600px) and (max-width: 700px) {
+  .dashboard_tabs {
+    font-size: 10px !important;
+    padding: 5px !important;
+  }
+  .serchbar {
+    width: 170px !important;
+  }
+  #steps_to_folow {
+    font-size: 30px !important;
+  }
+  .home_text {
+    font-size: 20px !important;
+  }
+  .home_img {
+    width: 200px !important;
+  }
+}
+
+@media screen and (max-width: 465px) {
+  .dashboard_tabs {
+    font-size: 10px !important;
+  }
+  .table_container {
+    padding: 10px !important;
+  }
+
+  .css-ag7rrr-MuiTypography-root {
+    font-size: 1rem !important;
+  }
+
+  #steps_to_folow {
+    font-size: 20px !important;
+  }
+  .signin_twitter_div {
+    width: 100% !important;
+  }
+  .btn {
+    width: 100% !important;
+  }
+  .btnedit {
+    /* width: 90px; */
+    font-size: 7px !important;
+  }
+  .add_pool_table_text {
+    font-size: 8px !important;
+  }
+  .setting_table_heads {
+    font-size: 10px !important;
+  }
+  .serchbar {
+    width: 150px !important;
+  }
+  .wallet-icon {
+    font-size: 25px;
+  }
+  .header-icon {
+    font-size: 16px;
+  }
+  .header_left {
+    margin-left: unset !important;
+  }
+  .header_right {
+    margin-right: unset !important;
+  }
+  #formbuton {
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 409px) {
+  .dashboard_tabs {
+    font-size: 8px !important;
+  }
+  .tabs_container {
+    width: 100% !important;
+  }
+  .iconBtn {
+    font-size: 8px !important;
+  }
+  .magic_eden {
+    font-size: 14px !important;
+  }
+  .magic_eden_desc {
+    font-size: 10px !important;
+  }
+
+  .card_header {
+    margin-left: 14px !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .community_plan {
+    font-size: 12px !important;
+  }
+  .signin_twitter_div {
+    width: 80% !important;
+  }
+
+  .headings {
+    font-size: 7px !important;
+  }
+  .add_pool_container_text {
+    font-size: 10px;
+  }
+  .home_text {
+    font-size: 30px;
+  }
+  .header_left {
+    margin-left: unset !important;
+  }
+
+  .header_right {
+    margin-right: unset !important;
+  }
+}
+@media (max-width: 899px) {
+  .rewardCards_solana_btn {
+    font-size: 12px !important;
+  }
+  .search_div {
+    width: 100% !important;
+    margin: 0 auto !important;
+    margin-top: 20px !important;
+  }
+  .user_avatar {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .welcome_admin {
+    font-size: 14px !important;
+  }
+  .project_info {
+    font-size: 18px !important;
+  }
+  .signuptext {
+    font-size: 35px;
+    text-align: center;
+  }
+  .signup_wallet {
+    margin-top: 5px !important;
+    width: 50% !important;
+  }
+  .home_text {
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 20px !important;
+  }
+
+  .wallet-btn-div {
+    display: flex;
+    justify-content: center !important;
+    margin-bottom: 20px !important;
+  }
+  .home_img {
+    width: 300px !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 958px) {
+  #form-label {
+    font-size: 14px !important;
+  }
+  .allUser_public_key {
+    font-size: 10px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .menu_btn {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1000px) {
+  .add_pool_container {
+    max-width: 470px !important;
+  }
+}
+
+/* -------------------------------------------------------------------------------------- */
+
+@media print {
+  .invoiceLogoSize {
+    width: 120px;
+  }
+}
+
+.mouseCursorChanger {
+  cursor: pointer;
+}
+.mouseCursorChanger:hover {
+  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* =========== modal scroll ========= */
+.flexcroll {
+  width: 400px;
+  /* height:200px; */
+  overflow: scroll;
+}
+.flexcroll {
+  scrollbar-face-color: #367cd2;
+  scrollbar-shadow-color: #ffffff;
+  scrollbar-highlight-color: #ffffff;
+  scrollbar-3dlight-color: #ffffff;
+  scrollbar-darkshadow-color: #ffffff;
+  scrollbar-track-color: #ffffff;
+  scrollbar-arrow-color: #ffffff;
+}
+
+/* Let's get this party started */
+.flexcroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* -------------------------------------------------------------------------------------------- */
+
+/* img scrolling code */
+.grid-img-div {
+  /* background: #000; */
+  height: 577px;
+  /* padding-top: 20px; */
+  /* margin-top: 50px; */
+  overflow: hidden;
+  /* margin-left: 150px; */
+}
+
+.grid-img1 {
+  /* height: 600px; */
+  height: auto;
+  width: 400px;
+  margin-left: 150px;
+  /* margin-top: 50px; */
+  margin-right: 200px;
+  overflow: hidden;
+  overscroll-behavior: hidden;
+  transform: translateY(-390px);
+  /* transform: translateY(2rem); */
+  transition: 2s;
+  /* position: relative; */
+}
+
+.grid-img2 {
+  /* height: 500px; */
+  /* height: auto; */
+  width: 400px;
+  margin-left: 150px;
+  /* margin-top: 50px; */
+  margin-right: 200px;
+  overflow: hidden;
+  overscroll-behavior: hidden;
+  transform: translateY(-200px);
+  transition: 2s;
+  /* transform: translateY(2rem); */
+  /* position: relative; */
+}
+
+.grid-img3 {
+  /* height: 500px; */
+  height: auto;
+  width: 400px;
+  margin-left: 150px;
+  /* margin-top: 50px; */
+  margin-right: 200px;
+  overflow: hidden;
+  overscroll-behavior: hidden;
+  transform: translateY(-250px);
+  transition: 2s;
+  transform: translateY(2rem);
+  /* position: relative; */
+}
+
+/* Landing Home Page */
+.welcome_heading {
+  font-family: Roclette Pro !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 90px;
+  display: flex !important;
+  color: white;
+}
+
+.welcome_text {
+  font-family: Poppins !important;
+  font-size: 30px;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.raider_btn1 {
+  background-color: white !important;
+  color: black !important;
+  border-radius: 30px !important;
+  font-size: 15px;
+  font-weight: 700 !important;
+  /* width: 184px !important; */
+  /* margin: auto; */
+
+  font-family: Poppins !important;
+}
+
+.raider_btn2 {
+  background-color: #00acee !important;
+  color: white !important;
+  border-radius: 30px !important;
+  font-size: 15px;
+  font-weight: 700 !important;
+
+  /* width: 184px !important; */
+  /* margin: auto 0; */
+
+  font-family: Poppins !important;
+}
+
+.left-grid {
+  align-self: center;
+  justify-content: center;
+}
+
+.landingHome-btns {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+}
+
+.landingHome-img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  /* background: #000; */
+}
+.landingHome-img img {
+  height: 250px;
+}
+
+/* When Clicked on Button 1 */
+.twitter_connect1 {
+  font-family: "Roclette Pro" !important;
+  font-weight: 600 !important;
+  font-size: 40px !important;
+  display: flex !important;
+  justify-content: center !important;
+  color: #333333 !important;
+}
+
+.twitter_connect2 {
+  font-family: "Roclette Pro" !important;
+  font-weight: 600 !important;
+  font-size: 40px !important;
+  display: flex !important;
+  justify-content: center !important;
+  color: #00acee;
+}
+
+.T_connect_heading {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+}
+.step2-textHeading2-1 {
+  font-family: "Roclette Pro" !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 30px !important;
+  display: flex !important;
+  justify-content: center !important;
+  color: #00acee;
+}
+
+.step2-textHeading2-2 {
+  font-family: "Roclette Pro" !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 30px !important;
+  display: flex !important;
+  justify-content: center !important;
+  color: black;
+}
+
+.account_profile_img {
+  border-radius: 87.5208px !important;
+  /* height: 87.52px;
+  width: 87.52px; */
+  justify-content: center !important;
+  text-align: center !important;
+  align-items: center !important;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+/* .account_profile_img {
+  border-radius: 87.5208px !important;
+  /* height: 87.52px;
+  width: 87.52px; */
+/* justify-content: center !important;
+  text-align: center !important;
+  align-items: center !important;
+  margin-bottom: 15px; */
+/* } */
+
+.account_name {
+  font-family: "lato" !important;
+  font-style: normal !important;
+  font-weight: 700;
+  font-size: 22px;
+  text-align: center;
+}
+
+.change_account {
+  font-family: "lato" !important;
+  font-style: normal !important;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  color: #b0b0b0;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.wallet-info {
+  background-color: #00acee !important;
+  color: #ffffff;
+  border-radius: 30px !important;
+  font-size: 15px;
+  font-weight: 700 !important;
+  /* width: 184px !important; */
+  margin: auto 0;
+  font-family: Poppins !important;
+}
+
+.nft_verification1 {
+  font-family: "Roclette Pro" !important;
+  font-weight: 600 !important;
+  font-size: 60px;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  line-height: 84px;
+}
+
+.nft_verification2 {
+  font-family: "Roclette Pro" !important;
+  font-weight: 600 !important;
+  font-size: 60px;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  color: #00acee;
+  line-height: 84px;
+  text-transform: uppercase;
+}
+
+.nft_verification_text {
+  font-family: "Lato" !important;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 140%;
+  /* identical to box height, or 28px */
+  text-align: center;
+  /* Black/black-400 */
+  color: #333333;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.nft_verification_warning {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 140%;
+  /* identical to box height, or 28px */
+  text-align: center;
+  /* Black/black-400 */
+  color: #333333;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.account_nfts_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* width: fit-content; */
+  /* position: absolute; */
+}
+
+.account_nfts_imgs {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  width: fit-content;
+  /* height: 215.78px; */
+  height: 150px;
+  gap: 28px;
+}
+
+.account_nfts_imgs img {
+  border-radius: 15px;
+  width: 100px;
+  height: 100px;
+  /* box-shadow: 5px 5px 5px #999; */
+}
+
+.account_name1 {
+  font-family: "Roclette Pro" !important;
+  font-weight: 600 !important;
+  font-size: 60px;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  /* line-height: 84px; */
+}
+
+.account_name2 {
+  font-family: "Roclette Pro" !important;
+  font-weight: 600 !important;
+  font-size: 60px;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  color: #00acee;
+  /* line-height: 84px; */
+  text-transform: uppercase;
+}
+
+@media (min-width: 975px) and (max-width: 1060px) {
+  .grid-img1,
+  .grid-img2,
+  .grid-img3 {
+    width: 350px;
+  }
+}
+
+@media (min-width: 915px) and (max-width: 974px) {
+  .grid-img1,
+  .grid-img2,
+  .grid-img3 {
+    width: 330px;
+  }
+}
+@media (min-width: 890px) and (max-width: 914px) {
+  .grid-img1,
+  .grid-img2,
+  .grid-img3 {
+    width: 310px;
+  }
+}
+@media (min-width: 861px) and (max-width: 889px) {
+  .grid-img1,
+  .grid-img2,
+  .grid-img3 {
+    width: 295px;
+  }
+  .twitter_connect1,
+  .twitter_connect2 {
+    font-size: 20px !important;
+  }
+}
+
+@media (min-width: 825px) and (max-width: 889px) {
+  .grid-img1,
+  .grid-img2,
+  .grid-img3 {
+    width: 280px;
+    transform: translateY(-320px) !important;
+  }
+  .grid-img2 {
+    transform: translateY(-150px) !important;
+  }
+  .grid-img3 {
+    transform: translateY(1.5rem) !important;
+  }
+  .twitter_connect1,
+  .twitter_connect2 {
+    font-size: 20px !important;
+  }
+}
+
+@media (min-width: 762px) and (max-width: 824px) {
+  .grid-img1,
+  .grid-img2,
+  .grid-img3 {
+    width: 250px;
+    transform: translateY(-260px) !important;
+  }
+  .grid-img2 {
+    transform: translateY(-120px) !important;
+  }
+  .grid-img3 {
+    transform: translateY(1.5rem) !important;
+  }
+  .twitter_connect1,
+  .twitter_connect2 {
+    font-size: 20px !important;
+  }
+}
+
+@media (min-width: 715px) and (max-width: 761px) {
+  .grid-img1,
+  .grid-img2,
+  .grid-img3 {
+    width: 220px;
+    transform: translateY(-220px) !important;
+  }
+  .grid-img2 {
+    transform: translateY(-100px) !important;
+  }
+  .grid-img3 {
+    transform: translateY(4rem) !important;
+  }
+  .twitter_connect1,
+  .twitter_connect2 {
+    font-size: 20px !important;
+  }
+}
+
+@media (min-width: 652px) and (max-width: 714px) {
+  .grid-img1,
+  .grid-img2,
+  .grid-img3 {
+    width: 190px;
+    transform: translateY(-180px) !important;
+  }
+  .grid-img2 {
+    transform: translateY(-70px) !important;
+  }
+  .grid-img3 {
+    transform: translateY(9rem) !important;
+  }
+  .twitter_connect1,
+  .twitter_connect2 {
+    font-size: 20px !important;
+  }
+}
+@media (min-width: 600px) and (max-width: 651px) {
+  .grid-img1,
+  .grid-img2,
+  .grid-img3 {
+    width: 160px;
+    transform: translateY(-150px) !important;
+  }
+  .grid-img2 {
+    transform: translateY(-40px) !important;
+  }
+  .grid-img3 {
+    transform: translateY(10rem) !important;
+  }
+  .twitter_connect1,
+  .twitter_connect2 {
+    font-size: 20px !important;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 599px) {
+  .grid-img1,
+  .grid-img2,
+  .grid-img3 {
+    width: 200px;
+    margin: 0 auto;
+    transform: translateY(-200px) !important;
+  }
+  .grid-img2 {
+    transform: translateY(-100px) !important;
+  }
+  .grid-img3 {
+    transform: translateY(5rem) !important;
+  }
+  .twitter_connect1,
+  .twitter_connect2 {
+    font-size: 20px !important;
+  }
+
+  .grid-img-div {
+    height: 250px;
+  }
+
+  .right_box {
+    margin-top: -250px !important;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1161px) {
+  .account_name1 {
+    margin-top: 100px !important;
+  }
+}
+
+@media screen and (max-width: 890px) {
+  .total_visits {
+    font-size: 18px !important;
+  }
+  /* .provision_month{
+    font-size: 9px !important;
+  } */
+  .home-natterbox-div {
+    left: 20% !important;
+    top: 40% !important;
+    transform: translate(-20%, -40%) !important;
+    /* background-color: red; */
+    width: 400px !important;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .home-natterbox-div {
+    left: 20% !important;
+    top: 40% !important;
+    transform: translate(-20%, -40%) !important;
+    /* background-color: red; */
+    width: 300px !important;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .total_raids_div {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 1015px) {
+  .provision_month {
+    font-size: 12px !important;
+  }
+}
+
+@media screen and (max-width: 705px) {
+  .total_visits_div {
+    display: block !important;
+  }
+  .provision_months_div {
+    width: 100% !important;
+  }
+}
