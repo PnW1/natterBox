@@ -208,7 +208,7 @@ const LandingHome = () => {
                 fontSize: { xs: "7px", md: "9px", lg: "11px", xl: "15px" },
               }}
             >
-              <span style={{ marginRight: "5px" }}></span>REWARD TWEETERS
+              <span style={{ marginRight: "5px" }}></span>REWARD TWITTER
             </Button>
           </div>
           <Typography sx={{ margin: "5px", paddingLeft: "15px" }}>

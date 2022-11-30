@@ -20,7 +20,7 @@ export default function RewardCards() {
       src: "ethereum.png",
       btnText: "Select Ethereum Wallet",
     },
-    { title: "Twitter Account", src: "twitter.png", btnText: "Connect Your Tweeter" },
+    { title: "Twitter Account", src: "twitter.png", btnText: "Connect Your Twitter" },
   ];
 
   return (
