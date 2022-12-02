@@ -51,6 +51,7 @@ const CreateInvoice = ({ auth }) => {
     discordForProjectContact: "",
     mintCreatorAddress: "",
     numberOfNft: "",
+    imageUrl: ""
   };
   const [activeStep, setActiveStep] = React.useState(0);
   const [stateValues, setStateValues] = useState(initialState);
@@ -169,6 +170,7 @@ const CreateInvoice = ({ auth }) => {
         projectTwitterUsername,
         mintCreatorAddress,
         numberOfNft,
+        imageUrl
       } = stateValues;
 
       if (
@@ -189,6 +191,7 @@ const CreateInvoice = ({ auth }) => {
         mintCreatorAddress,
         numberOfNft,
         isRaid,
+        imageUrl
       };
       const { data } = await CreateInvoiceApi(body, token);
       console.log(data?.createdInvoice?.projectName, "pooldataID");
@@ -479,10 +482,10 @@ const CreateInvoice = ({ auth }) => {
                   style={
                     isSuccessful
                       ? {
-                          maxWidth: "85%",
-                          margin: "auto",
-                          pointerEvents: "none",
-                        }
+                        maxWidth: "85%",
+                        margin: "auto",
+                        pointerEvents: "none",
+                      }
                       : { maxWidth: "85%", margin: "auto" }
                   }
                 >
@@ -534,10 +537,10 @@ const CreateInvoice = ({ auth }) => {
                     style={
                       isSuccessful
                         ? {
-                            maxWidth: "85%",
-                            margin: "auto",
-                            pointerEvents: "none",
-                          }
+                          maxWidth: "85%",
+                          margin: "auto",
+                          pointerEvents: "none",
+                        }
                         : { maxWidth: "85%", margin: "auto" }
                     }
                   >
@@ -641,7 +644,22 @@ const CreateInvoice = ({ auth }) => {
                             }
                           />
                         </div>
-
+                        <div className="mb-3">
+                          <label className="form-label">Image Url</label>
+                          <input
+                            type="text"
+                            id="image"
+                            placeholder="image url"
+                            className="form-control"
+                            value={stateValues.imageUrl}
+                            onChange={(e) =>
+                              setStateValues((prev) => ({
+                                ...prev,
+                                imageUrl: e.target.value,
+                              }))
+                            }
+                          />
+                        </div>
                         {/* here btns */}
                         <div className="mt-5 mb-3 col">
                           {loading && (
@@ -664,142 +682,142 @@ const CreateInvoice = ({ auth }) => {
                   </div>
                 </>
               ) : // ) : isSuccessful && index === 2 ? (
-              index === 2 ? (
-                <>
-                  <div
-                    className="container my-5 p-3 border border-1 border-info rounded-3"
-                    style={{ maxWidth: "85%", margin: "auto" }}
-                  >
-                    <Typography>
-                      <form disabled className="p-md-3 text-white">
-                        {/* invoiceLogo */}
-                        <div className="mb-3">
-                          <label className="form-label">Add Sols Amount</label>
-                          <input
-                            type="text"
-                            id="tweetUrl"
-                            // placeholder="Project Name"
-                            className="form-control"
-                            value={SolAmount}
-                            pattern="[0-9]*"
-                            onChange={(e) =>
-                              setSolAmount((v) =>
-                                e.target.validity.valid ? e.target.value : v
-                              )
-                            }
-                            // onChange={(e) => setSolAmount(e.target.value)}
-                          />
-                        </div>
-                        <Button
-                          onClick={handleTransferSol}
-                          sx={{
-                            backgroundColor: "primary",
-                            marginBottom: "20px",
-                          }}
-                          variant="contained"
-                        >
-                          Transfer Sols
-                        </Button>
-
-                        <div className="mb-3">
-                          <label className="form-label">
-                            Add Spl Token Amount
-                          </label>
-                          <Tooltip
-                            // title="Enter Twitter username without '@' sign, and without spaces."
-                            placement="top"
-                          >
+                index === 2 ? (
+                  <>
+                    <div
+                      className="container my-5 p-3 border border-1 border-info rounded-3"
+                      style={{ maxWidth: "85%", margin: "auto" }}
+                    >
+                      <Typography>
+                        <form disabled className="p-md-3 text-white">
+                          {/* invoiceLogo */}
+                          <div className="mb-3">
+                            <label className="form-label">Add Sols Amount</label>
                             <input
                               type="text"
                               id="tweetUrl"
-                              // placeholder="Project Twitter Username"
+                              // placeholder="Project Name"
                               className="form-control"
-                              value={SplToken}
+                              value={SolAmount}
                               pattern="[0-9]*"
-                              // onChange={(e) => setSplToken(e.target.value)}
                               onChange={(e) =>
-                                setSplToken((v) =>
+                                setSolAmount((v) =>
                                   e.target.validity.valid ? e.target.value : v
                                 )
                               }
+                            // onChange={(e) => setSolAmount(e.target.value)}
                             />
-                          </Tooltip>
-                        </div>
-                        <Button variant="contained" onClick={handleTransferSpl}>
-                          Transfer SPL
-                        </Button>
-                      </form>
+                          </div>
+                          <Button
+                            onClick={handleTransferSol}
+                            sx={{
+                              backgroundColor: "primary",
+                              marginBottom: "20px",
+                            }}
+                            variant="contained"
+                          >
+                            Transfer Sols
+                          </Button>
+
+                          <div className="mb-3">
+                            <label className="form-label">
+                              Add Spl Token Amount
+                            </label>
+                            <Tooltip
+                              // title="Enter Twitter username without '@' sign, and without spaces."
+                              placement="top"
+                            >
+                              <input
+                                type="text"
+                                id="tweetUrl"
+                                // placeholder="Project Twitter Username"
+                                className="form-control"
+                                value={SplToken}
+                                pattern="[0-9]*"
+                                // onChange={(e) => setSplToken(e.target.value)}
+                                onChange={(e) =>
+                                  setSplToken((v) =>
+                                    e.target.validity.valid ? e.target.value : v
+                                  )
+                                }
+                              />
+                            </Tooltip>
+                          </div>
+                          <Button variant="contained" onClick={handleTransferSpl}>
+                            Transfer SPL
+                          </Button>
+                        </form>
+                      </Typography>
+                    </div>
+                  </>
+                ) : index === 3 ? (
+                  <>
+                    <Typography
+                      sx={
+                        ispoolSuccessful
+                          ? {
+                            pointerEvents: "none",
+                            width: "85%",
+                            margin: "auto",
+                          }
+                          : { width: "85%", margin: "auto" }
+                      }
+                    >
+                      {/* <ReadAllInvoices /> */}
+                      {/* <ReadAllInvoices /> */}
+                      {ProjectID && (
+                        <AddPool
+                          projectId={ProjectID}
+                          setPoolID={setPoolID}
+                          setpoolSuccessfully={setpoolSuccessfully}
+                        />
+                      )}
                     </Typography>
-                  </div>
-                </>
-              ) : index === 3 ? (
-                <>
-                  <Typography
-                    sx={
-                      ispoolSuccessful
-                        ? {
-                            pointerEvents: "none",
-                            width: "85%",
-                            margin: "auto",
-                          }
-                        : { width: "85%", margin: "auto" }
-                    }
-                  >
-                    {/* <ReadAllInvoices /> */}
-                    {/* <ReadAllInvoices /> */}
-                    {ProjectID && (
-                      <AddPool
-                        projectId={ProjectID}
-                        setPoolID={setPoolID}
-                        setpoolSuccessfully={setpoolSuccessfully}
-                      />
-                    )}
-                  </Typography>
-                </>
-              ) : isRaid && index === 4 ? (
-                <>
-                  <Typography
-                    sx={
-                      istweetSuccessful
-                        ? {
+                  </>
+                ) : isRaid && index === 4 ? (
+                  <>
+                    <Typography
+                      sx={
+                        istweetSuccessful
+                          ? {
                             width: "85%",
                             margin: "auto",
                             pointerEvents: "none",
                           }
-                        : { width: "85%", margin: "auto" }
-                    }
-                  >
-                    {poolID && (
-                      <AddTweet
-                        poolID={poolID}
-                        settweetSuccessfully={settweetSuccessfully}
-                      />
-                    )}
-                  </Typography>
-                </>
-              ) : !isRaid && index === 4 ? (
-                <>
-                  <div
-                    className="container my-5 p-3 border border-1 border-info rounded-3"
-                    style={{ maxWidth: "85%", margin: "auto" }}
-                  >
-                    <Button variant="contained" onClick={handlerPreview}>
-                      Preview
-                    </Button>
-                  </div>
-                </>
-              ) : index === 5 ? (
-                <>
-                  <div
-                    className="container my-5 p-3 border border-1 border-info rounded-3"
-                    style={{ maxWidth: "85%", margin: "auto" }}
-                  >
-                    <Button variant="contained" onClick={handlerPreview}>
-                      Preview
-                    </Button>
-                  </div>
-                </>
-              ) : null}
+                          : { width: "85%", margin: "auto" }
+                      }
+                    >
+                      {poolID && (
+                        <AddTweet
+                          poolID={poolID}
+                          settweetSuccessfully={settweetSuccessfully}
+                        />
+                      )}
+                    </Typography>
+                  </>
+                ) : !isRaid && index === 4 ? (
+                  <>
+                    <div
+                      className="container my-5 p-3 border border-1 border-info rounded-3"
+                      style={{ maxWidth: "85%", margin: "auto" }}
+                    >
+                      <Button variant="contained" onClick={handlerPreview}>
+                        Preview
+                      </Button>
+                    </div>
+                  </>
+                ) : index === 5 ? (
+                  <>
+                    <div
+                      className="container my-5 p-3 border border-1 border-info rounded-3"
+                      style={{ maxWidth: "85%", margin: "auto" }}
+                    >
+                      <Button variant="contained" onClick={handlerPreview}>
+                        Preview
+                      </Button>
+                    </div>
+                  </>
+                ) : null}
 
               <Box sx={{ width: "80%", margin: "auto" }}>
                 <div sx={{}}>

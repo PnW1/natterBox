@@ -51,253 +51,257 @@ const MentionProjects = ({ currentUsers, datas, mention }) => {
       <Grid item xs={12} md={6} lg={4} xl={3} sx={{ position: "relative" }}>
         {/* <div className=""> */}
         <Card
-        sx={{ maxWidth: 345, backgroundColor: "black", borderRadius: "17px", margin:"0 auto" }}
-      >
-        <Typography
-          component="div"
-          sx={{
-            background: `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%) ,url("${Images.mentionCardImg}")`,
-            height: "194px",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            position: "relative",
-          }}
+          sx={{ maxWidth: 345, backgroundColor: "black", borderRadius: "17px", margin: "0 auto" }}
         >
-          <CardHeader
-            sx={{
-              position: "absolute",
-              bottom: "0",
-              left: "0",
-              width: "100%",
-
-              color: "white",
-            }}
-            avatar={
-              <Avatar
-                sx={{
-                  bgcolor: red[500],
-                }}
-                aria-label="recipe"
-              >
-                R
-              </Avatar>
-            }
-            action={
-              <IconButton
-                aria-label="settings"
-                sx={{
-                  color: "white",
-                }}
-              >
-                <MoreVertIcon />
-              </IconButton>
-            }
-            title={datas?.projectName}
-            subheader={`@${datas?.projectTwitterUsername}`}
-          />
-        </Typography>
-    
-
-       {!mention ? ( 
-        <>
-        <CardContent>
-          <Typography variant="body2" color="white">
-            This impressive paella is a perfect party dish and a fun meal to
-            cook together with your guests. Add 1 cup of frozen peas along with
-            the mussels, if you like.
-          </Typography>
-        </CardContent>
-        <Typography
-          component="div"
-          sx={{ paddingLeft: "10px", paddingRight: "10px" }}
-        >
-          <CardActions
-                      sx={{
-                        justifyContent: "space-between",
-                        borderBottom: "1px solid gray",
-                        padding: "unset !important",
-                      }}
-                      disableSpacing
-                    >
-                      <IconButton
-                        className="iconBtn"
-                        sx={{
-                          fontSize: "13px",
-                          alignItems: "center",
-                          gap: "5px",
-                        }}
-                        aria-label="add to favorites"
-                      >
-                        <Icon icon="bi:clock-history" /> Date
-                      </IconButton>
-
-                      <IconButton
-                        className="iconBtn"
-                        sx={{ fontSize: "12px", gap: "5px" }}
-                        aria-label="share"
-                      >
-                        <Typography className="active_icon"></Typography>
-                        {datas?.pool[0]?.startTime ? (
-                          <>
-                            Active (Starts in{" "}
-                            {moment.unix(datas?.pool[0]?.startTime).fromNow()})
-                          </>
-                        ) : (
-                          "Not Started yet"
-                        )}
-                      </IconButton>
-                    </CardActions>
-        </Typography>
-        </>
-         ): null}
-
-        <CardActions>
-          <ExpandMore
-            expand={expanded}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="show more"
-            sx={{ color: "#47DDFC" }}
-          >
-            <HiChevronDoubleDown />
-          </ExpandMore>
-        </CardActions>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
           <Typography
-            variant="body2"
-            color="text.secondary"
-            sx={{ paddingLeft: "10px", paddingRight: "10px" }}
-          >
-           {!mention ? (
-            <>
-            <CardActions
-              sx={{
-                justifyContent: "space-between",
-                borderBottom: "1px solid gray",
-                padding: "unset !important",
-              }}
-              disableSpacing
-            >
-              <IconButton
-                className="iconBtn"
-                sx={{
-                  fontSize: "13px",
-                  alignItems: "center",
-                  gap: "5px",
-                }}
-                aria-label="add to favorites"
-              >
-                <Icon icon="arcticons:rewards" /> Reward
-              </IconButton>
-
-              <IconButton
-                className="iconBtn"
-                sx={{ fontSize: "12px", gap: "5px" }}
-                aria-label="share"
-              >
-                0.025 (SOL)
-              </IconButton>
-            </CardActions>
-
-            <CardActions
-              sx={{
-                justifyContent: "space-between",
-                borderBottom: "1px solid gray",
-                padding: "unset !important",
-              }}
-              disableSpacing
-            >
-              <IconButton
-                className="iconBtn"
-                sx={{
-                  fontSize: "13px",
-                  alignItems: "center",
-                  gap: "5px",
-                }}
-                aria-label="add to favorites"
-              >
-                <Icon icon="bi:clock-history" /> Claimed Rewards
-              </IconButton>
-
-              <IconButton
-                className="iconBtn"
-                sx={{ fontSize: "12px", gap: "5px" }}
-                aria-label="share"
-              >
-                20 (SOL)
-              </IconButton>
-            </CardActions>
-
-            <CardActions
-              sx={{
-                justifyContent: "space-between",
-
-                padding: "unset !important",
-              }}
-              disableSpacing
-            >
-              <IconButton
-                className="iconBtn"
-                sx={{
-                  fontSize: "13px",
-                  alignItems: "center",
-                  gap: "5px",
-                }}
-                aria-label="add to favorites"
-              >
-                <Icon icon="charm:at-sign" /> Total Mentions
-              </IconButton>
-
-              <IconButton
-                className="iconBtn"
-                sx={{ fontSize: "12px", gap: "5px" }}
-                aria-label="share"
-              >
-                155
-              </IconButton>
-            </CardActions>
-            </>
-           ): null}
-
-            {currentUserr && (
-                  <UserMentions currentUser={currentUserr} data={dataa} />
-                )}
-          </Typography>
-          
-        </Collapse>
-        {!mention ? (
-          <CardActions
+            
+             color="white"
             sx={{
-              justifyContent: "space-between",
-              background: "#636363",
-              borderBottomLeftRadius: "10px",
-              borderBottomRightRadius: "10px",
-              color: "white",
+              background: `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%) ,url("${datas?.imageUrl}")`,
+              height: "194px",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              position: "relative",
+               
             }}
-            disableSpacing
           >
-            <IconButton className="iconBtn" aria-label="add to favorites">
-              <FavoriteIcon />
-            </IconButton>
-            <IconButton className="iconBtn" aria-label="share">
-              <Icon icon="ant-design:retweet-outlined" />
-            </IconButton>
-            <IconButton className="iconBtn" aria-label="share">
-              <Icon icon="fa-regular:comment-dots" />
-            </IconButton>
-            <IconButton className="iconBtn" aria-label="share">
-              <ShareIcon />
-            </IconButton>
+            <CardHeader
+              sx={{
+                position: "absolute",
+                bottom: "0",
+                left: "0",
+                width: "100%",
+                color: "white",
+                "&.MuiCardHeader-subheader": {
+                  color: "red",
+                }
+              }}
+              avatar={
+                <Avatar
+                  sx={{
+                    bgcolor: red[500],
+                  }}
+                  aria-label="recipe"
+                >
+                  R
+                </Avatar>
+              }
+              action={
+                <IconButton
+                  aria-label="settings"
+                  sx={{
+                    color: "white",
+                  }}
+                >
+                  <MoreVertIcon />
+                </IconButton>
+              }
+              title={datas?.projectName}
+              subheader={`@${datas?.projectTwitterUsername}`}
+            />
+          </Typography>
+
+
+          {!mention ? (
+            <>
+              <CardContent>
+                <Typography variant="body2" color="white">
+                  This impressive paella is a perfect party dish and a fun meal to
+                  cook together with your guests. Add 1 cup of frozen peas along with
+                  the mussels, if you like.
+                </Typography>
+              </CardContent>
+              <Typography
+                component="div"
+                sx={{ paddingLeft: "10px", paddingRight: "10px" }}
+              >
+                <CardActions
+                  sx={{
+                    justifyContent: "space-between",
+                    borderBottom: "1px solid gray",
+                    padding: "unset !important",
+                  }}
+                  disableSpacing
+                >
+                  <IconButton
+                    className="iconBtn"
+                    sx={{
+                      fontSize: "13px",
+                      alignItems: "center",
+                      gap: "5px",
+                    }}
+                    aria-label="add to favorites"
+                  >
+                    <Icon icon="bi:clock-history" /> Date
+                  </IconButton>
+
+                  <IconButton
+                    className="iconBtn"
+                    sx={{ fontSize: "12px", gap: "5px" }}
+                    aria-label="share"
+                  >
+                    <Typography className="active_icon"></Typography>
+                    {datas?.pool[0]?.startTime ? (
+                      <>
+                        Active (Starts in{" "}
+                        {moment.unix(datas?.pool[0]?.startTime).fromNow()})
+                      </>
+                    ) : (
+                      "Not Started yet"
+                    )}
+                  </IconButton>
+                </CardActions>
+              </Typography>
+            </>
+          ) : null}
+
+          <CardActions>
+            <ExpandMore
+              expand={expanded}
+              onClick={handleExpandClick}
+              aria-expanded={expanded}
+              aria-label="show more"
+              sx={{ color: "#47DDFC" }}
+            >
+              <HiChevronDoubleDown />
+            </ExpandMore>
           </CardActions>
-        ): null
+          <Collapse in={expanded} timeout="auto" unmountOnExit>
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              sx={{ paddingLeft: "10px", paddingRight: "10px" }}
+            >
+              {!mention ? (
+                <>
+                  <CardActions
+                    sx={{
+                      justifyContent: "space-between",
+                      borderBottom: "1px solid gray",
+                      padding: "unset !important",
+                    }}
+                    disableSpacing
+                  >
+                    <IconButton
+                      className="iconBtn"
+                      sx={{
+                        fontSize: "13px",
+                        alignItems: "center",
+                        gap: "5px",
+                      }}
+                      aria-label="add to favorites"
+                    >
+                      <Icon icon="arcticons:rewards" /> Reward
+                    </IconButton>
 
-        }
-      </Card>
-         
+                    <IconButton
+                      className="iconBtn"
+                      sx={{ fontSize: "12px", gap: "5px" }}
+                      aria-label="share"
+                    >
+                      0.025 (SOL)
+                    </IconButton>
+                  </CardActions>
+
+                  <CardActions
+                    sx={{
+                      justifyContent: "space-between",
+                      borderBottom: "1px solid gray",
+                      padding: "unset !important",
+                    }}
+                    disableSpacing
+                  >
+                    <IconButton
+                      className="iconBtn"
+                      sx={{
+                        fontSize: "13px",
+                        alignItems: "center",
+                        gap: "5px",
+                      }}
+                      aria-label="add to favorites"
+                    >
+                      <Icon icon="bi:clock-history" /> Claimed Rewards
+                    </IconButton>
+
+                    <IconButton
+                      className="iconBtn"
+                      sx={{ fontSize: "12px", gap: "5px" }}
+                      aria-label="share"
+                    >
+                      20 (SOL)
+                    </IconButton>
+                  </CardActions>
+
+                  <CardActions
+                    sx={{
+                      justifyContent: "space-between",
+
+                      padding: "unset !important",
+                    }}
+                    disableSpacing
+                  >
+                    <IconButton
+                      className="iconBtn"
+                      sx={{
+                        fontSize: "13px",
+                        alignItems: "center",
+                        gap: "5px",
+                      }}
+                      aria-label="add to favorites"
+                    >
+                      <Icon icon="charm:at-sign" /> Total Mentions
+                    </IconButton>
+
+                    <IconButton
+                      className="iconBtn"
+                      sx={{ fontSize: "12px", gap: "5px" }}
+                      aria-label="share"
+                    >
+                      155
+                    </IconButton>
+                  </CardActions>
+                </>
+              ) : null}
+
+              {currentUserr && (
+                <UserMentions currentUser={currentUserr} data={dataa} />
+              )}
+            </Typography>
+
+          </Collapse>
+          {!mention ? (
+            <CardActions
+              sx={{
+                justifyContent: "space-between",
+                background: "#636363",
+                borderBottomLeftRadius: "10px",
+                borderBottomRightRadius: "10px",
+                color: "white",
+              }}
+              disableSpacing
+            >
+              <IconButton className="iconBtn" aria-label="add to favorites">
+                <FavoriteIcon />
+              </IconButton>
+              <IconButton className="iconBtn" aria-label="share">
+                <Icon icon="ant-design:retweet-outlined" />
+              </IconButton>
+              <IconButton className="iconBtn" aria-label="share">
+                <Icon icon="fa-regular:comment-dots" />
+              </IconButton>
+              <IconButton className="iconBtn" aria-label="share">
+                <ShareIcon />
+              </IconButton>
+            </CardActions>
+          ) : null
+
+          }
+        </Card>
+
         {/* </div> */}
-{/* ================================================ */}
+        {/* ================================================ */}
 
- {/* <Card
+        {/* <Card
             sx={{
               minHeight: "570px",
               width: "100%",
@@ -551,7 +555,7 @@ const MentionProjects = ({ currentUsers, datas, mention }) => {
 
 
 
-{/* ================================================= */}
+        {/* ================================================= */}
 
       </Grid>
     </>

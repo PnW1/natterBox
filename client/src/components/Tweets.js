@@ -110,7 +110,7 @@ const Tweets = (props) => {
       <Typography
         sx={{ display: "flex", justifyContent: "center", marginBottom: "40px" }}
       >
-        <img width="50px" src="natter.png" alt="" />
+        <img width="70px" src="chat.png" alt="" />
       </Typography>
       {/* <Divider /> */}
 
@@ -132,32 +132,30 @@ const Tweets = (props) => {
             <ListItemButton
               // className="dashboard_list text-white"
               onClick={() => setSelectedComponent(obj.text)}
-              className={`text-info justify-content-center fs-3 ${
-                selectedComponent === obj.text ? "text-info" : "text-white"
-              }`}
+              className={`text-info justify-content-center fs-3 ${selectedComponent === obj.text ? "text-info" : "text-white"
+                }`}
             >
               <Tooltip
-                title={`${
-                  index === 0
-                    ? "dashboard"
-                    : index === 1
+                title={`${index === 0
+                  ? "dashboard"
+                  : index === 1
                     ? "Mention to Earn"
                     : index === 2
-                    ? "Raid to Earn"
-                    : index === 3
-                    ? "Sweep to Earn"
-                    : index === 4
-                    ? "Profile"
-                    : index === 5
-                    ? "Rewards"
-                    : index === 6
-                    ? "Accounts"
-                    : index === 7
-                    ? "Support"
-                    : index === 8
-                    ? "Setting"
-                    : "Stats"
-                }`}
+                      ? "Raid to Earn"
+                      : index === 3
+                        ? "Sweep to Earn"
+                        : index === 4
+                          ? "Profile"
+                          : index === 5
+                            ? "Rewards"
+                            : index === 6
+                              ? "Accounts"
+                              : index === 7
+                                ? "Support"
+                                : index === 8
+                                  ? "Setting"
+                                  : "Stats"
+                  }`}
               >
                 <ListItemIcon className="dasbboard_icons m-auto">
                   <Icon
@@ -447,12 +445,12 @@ const Tweets = (props) => {
                       title={props.auth?.userName}
                     />
                   </Typography>
-                  <Avatar
+                  {/* <Avatar
                     sx={{ backgroundColor: "rgb(29, 155, 240)" }}
                     aria-label="recipe"
                   >
                     <Icon icon="akar-icons:twitter-fill" />
-                  </Avatar>
+                  </Avatar> */}
                   <MenuItem>
                     {[
                       <Button

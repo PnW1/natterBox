@@ -74,6 +74,9 @@ const invoiceSchema = schema({
     type: String,
     required: true,
   },
+  imageUrl: {
+    type: String,
+  },
   invoiceCreater: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
 });
 

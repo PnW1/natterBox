@@ -65,12 +65,12 @@ const PublicNavBar = ({ setShowSideBar, showSideBar, home }) => {
             <Typography sx={{ color: "white" }}>
               <Typography className="">
                 {clientAddress ? (
-                  <Typography style={{ fontSize: "10px" }}>
+                  <Typography style={{ fontSize: "12px" }}>
                     Your Wallet: {clientAddress}
                   </Typography>
                 ) : null}
                 {solBalance ? (
-                  <Typography sx={{ fontSize: "10px" }}>
+                  <Typography sx={{ fontSize: "12px" }}>
                     Balance: {solBalance} sol
                   </Typography>
                 ) : null}

@@ -352,9 +352,9 @@
   margin-left: 100px;
   margin-right: 100px;
 }
-.css-pwngrv-MuiPaper-root-MuiCard-root {
+/* .css-pwngrv-MuiPaper-root-MuiCard-root {
   color: black !important;
-}
+} */
 
 /* @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap'); */
 
@@ -744,6 +744,12 @@
   color: white !important;
   font-size: 10px !important;
 }
+
+
+.css-mbfek{
+  color:white !important;
+}
+
 /* ===== reward and account cards style =======  */
 .card_rewards {
   background-image: url("../src/assets/images/Rectangle.png");

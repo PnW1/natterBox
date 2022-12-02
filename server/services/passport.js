@@ -19,8 +19,8 @@ passport.use(
     {
       consumerKey: keys.twitterConsumerKey,
       consumerSecret: keys.twitterConsumerSecret,
-      // callbackURL: "http://localhost:4080/oauth/callback/twitter.com",
-      callbackURL: "https://api.chatterr.xyz/oauth/callback/twitter.com",
+      callbackURL: "http://localhost:4080/oauth/callback/twitter.com",
+      // callbackURL: "https://api.chatterr.xyz/oauth/callback/twitter.com",
       proxy: true,
     },
     async (accessToken, accessTokenSecret, refreshToken, profile, done) => {

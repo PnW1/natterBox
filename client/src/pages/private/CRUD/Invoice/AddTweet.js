@@ -287,6 +287,11 @@ const CreateInvoice = ({ poolID, settweetSuccessfully }) => {
         dispatch({ type: "loadingStop" });
         return;
       }
+      if (res?.data?.data?.text?.length < 20) {
+        toast.error("tweet length must be greater then 20 char");
+        dispatch({ type: "loadingStop" });
+        return;
+      }
       const body = {
         tweetId,
         projectName,
@@ -310,6 +315,7 @@ const CreateInvoice = ({ poolID, settweetSuccessfully }) => {
             tweetText: res?.data?.data?.text,
           },
         };
+        console.log(res?.data?.data?.text);
         const { data } = await AddInvoicePoolTweetApi(id, body, token);
         dispatch({ type: "loadingStop" });
 

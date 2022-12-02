@@ -66,7 +66,7 @@ const SidebarTemplate = ({ currentUser, navArray, setShowSideBar }) => {
               marginTop: "20px",
             }}
           >
-            <img width="50px" src="/natter.png" alt="" />
+            <img width="70px" src="/chat.png" alt="" />
           </Typography>
           <nav className="overflow-hidden mt-5">
             <ul className="navbar-nav mb-2 mb-lg-0 py-4">
@@ -83,7 +83,7 @@ const SidebarTemplate = ({ currentUser, navArray, setShowSideBar }) => {
                   <li
                     className="nav-item py-2 sidebar-links"
                     key={navElement.href}
-                    // onClick={() => setShowSideBar(false)}
+                  // onClick={() => setShowSideBar(false)}
                   >
                     <NavLink
                       sx={{ color: "white" }}
