@@ -12,6 +12,7 @@ module.exports = (app) => {
     (req, res) => {
       res.redirect("http://localhost:3000/Landing");
       // res.redirect("https://chatterr.xyz/Landing");
+      // res.redirect("https://beta.chatterr.xyz/Landing");
     }
   );
 
@@ -19,6 +20,7 @@ module.exports = (app) => {
     req.logOut();
     res.redirect("http://localhost:3000");
     // res.redirect("https://chatterr.xyz");
+    // res.redirect("https://beta.chatterr.xyz");
   });
   app.get("/api/current_user", (req, res) => {
     if (req.user) {

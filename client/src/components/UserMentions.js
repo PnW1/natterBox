@@ -25,7 +25,7 @@ const UserMentions = ({ currentUser, data }) => {
     }
   }, [data]);
   const solConnection = new web3.Connection(
-    "https://lingering-hidden-dew.solana-mainnet.quiknode.pro/03680929d6c8fef9bb62ca0130a2df2d6303f2a0/",
+    process.env.REACT_APP_SOLANA_URL,
     "processed"
   );
 
@@ -143,6 +143,7 @@ const UserMentions = ({ currentUser, data }) => {
             id="splToken"
             required={true}
             value={rewardToken}
+            style={{ overflow: "hidden", textOverflow: "ellipsis" }}
             onChange={(e) => {
               setRewardToken(e.target.value);
             }}
@@ -152,7 +153,7 @@ const UserMentions = ({ currentUser, data }) => {
               <>
                 <option
                   key={i}
-                  style={{ fontSize: "12px", fontSize: "8px" }}
+                  style={{ fontSize: "12px", overflow: "hidden", textOverflow: "ellipsis" }}
                   value={pool.splToken}
                 >
                   {pool.splToken}
@@ -162,48 +163,48 @@ const UserMentions = ({ currentUser, data }) => {
           </select>
         ) : null}
       </div>
-      {mentionUserTweet?.length > 0 ? (
-        <div className="mb-3">
-          <label
-            className="form-label"
-            htmlFor="userType"
-            style={{ color: "white" }}
-          >
-            Select Your Tweet For Reward
-          </label>
-          <select
-            className="form-select"
-            id="splToken"
-            required={true}
-            // defaultValue={mentionUserTweet[0]?.id}
-            value={tweetForReward}
-            onChange={(e) => {
-              setTweetForReward(e.target.value);
-            }}
-          >
-            {!tweetForReward ? (
-              <option value={""}>{"Select Tweet"}</option>
-            ) : null}
-            {mentionUserTweet.map((tweet, i) => (
-              <>
-                <option key={i} value={tweet.id}>
-                  {tweet.text}
-                </option>
-              </>
-            ))}
-          </select>
-        </div>
-      ) : null}
-      {mentionUserTweet?.length > 0 ? (
-        <Button
-          id="headings"
-          style={{ marginBottom: "20px" }}
-          variant="contained"
-          onClick={createTweet}
+      {/* {mentionUserTweet?.length > 0 ? ( */}
+      <div className="mb-3">
+        <label
+          className="form-label"
+          htmlFor="userType"
+          style={{ color: "white" }}
         >
-          Apply Claim
-        </Button>
-      ) : null}
+          Select Your Tweet For Reward
+        </label>
+        <select
+          className="form-select"
+          id="splToken"
+          required={true}
+          // defaultValue={mentionUserTweet[0]?.id}
+          value={tweetForReward}
+          onChange={(e) => {
+            setTweetForReward(e.target.value);
+          }}
+        >
+          {!tweetForReward ? (
+            <option value={""}>{"Select Tweet"}</option>
+          ) : null}
+          {mentionUserTweet.map((tweet, i) => (
+            <>
+              <option key={i} value={tweet.id}>
+                {tweet.text}
+              </option>
+            </>
+          ))}
+        </select>
+      </div>
+      {/* ) : null} */}
+      {/* {mentionUserTweet?.length > 0 ? ( */}
+      <Button
+        id="headings"
+        style={{ marginBottom: "20px" }}
+        variant="contained"
+        onClick={createTweet}
+      >
+        Apply Claim
+      </Button>
+      {/* ) : null} */}
     </>
   );
 };

@@ -1,7 +1,7 @@
 const navArray = [
   {
-    name: "Dashboard",
-    href: "/app/dashboard",
+    name: "All Projects",
+    href: "/app/invoice/readAll",
     id: "Manager0",
   },
   {
@@ -10,8 +10,8 @@ const navArray = [
     id: "Manager2",
   },
   {
-    name: "All Projects",
-    href: "/app/invoice/readAll",
+    name: "Dashboard",
+    href: "/app/dashboard",
     id: "Manager3",
   },
 ];

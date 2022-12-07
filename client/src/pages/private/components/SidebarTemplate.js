@@ -7,7 +7,9 @@ import { Icon } from "@iconify/react";
 import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
 import CardHeader from "@mui/material/CardHeader";
+import DashboardIcon from '@mui/icons-material/Dashboard';
 import Avatar from "@mui/material/Avatar";
+import "../../../App.css";
 
 const SidebarTemplate = ({ currentUser, navArray, setShowSideBar }) => {
   const [{ sidebar, token }] = useStatesFunc();
@@ -97,11 +99,18 @@ const SidebarTemplate = ({ currentUser, navArray, setShowSideBar }) => {
                     >
                       <Typography style={{ fontSize: "30px" }}>
                         {index === 0 ? (
-                          <Icon icon="ic:twotone-space-dashboard" />
-                        ) : index === 1 || index === 2 ? (
-                          <Icon icon="codicon:project" />
+                          <div className="nav1234">  <Icon icon="bx:user" />
+                            <Typography sx={{paddingLeft:"5px"}}>Projects</Typography></div>
+
+
+                        ) : index === 1 ? (
+                          <div className="nav1234">
+                            <Icon icon="codicon:project" />
+                            <Typography sx={{paddingLeft:"5px"}}>Create</Typography></div>
                         ) : (
-                          <Icon icon="bx:user" />
+                          <div className="nav1234">
+                          <Icon icon="material-symbols:dashboard" />
+                          <Typography sx={{paddingLeft:"5px"}}>Dashboard</Typography></div>
                         )}
                       </Typography>
                       {/* <Typography> {navElement.name}</Typography> */}

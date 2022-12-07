@@ -92,7 +92,7 @@ const Dashboard = (props) => {
                   setShowSideBar={setShowSideBar}
                   showSideBar={showSideBar}
                 />
-                <div style={{ width: "90%", margin: "0 auto" }}>
+                <div style={{ width: "83%", margin: "0 auto" }}>
                   <Outlet />
                 </div>
               </div>

@@ -15,11 +15,12 @@ import ShareIcon from "@mui/icons-material/Share";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Grid from "@mui/material/Grid";
 import { Icon } from "@iconify/react";
-// import Divider from '@mui/material/Divider';
-import Button from "@mui/material/Button";
+
+
+
 import UserMentions from "./UserMentions";
 
-import Images from "../assets/Images";
+
 import { HiChevronDoubleDown } from "react-icons/hi";
 
 
@@ -54,15 +55,16 @@ const MentionProjects = ({ currentUsers, datas, mention }) => {
           sx={{ maxWidth: 345, backgroundColor: "black", borderRadius: "17px", margin: "0 auto" }}
         >
           <Typography
-            
-             color="white"
+
+            color="white"
             sx={{
               background: `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%) ,url("${datas?.imageUrl}")`,
               height: "194px",
               backgroundSize: "cover",
               backgroundPosition: "center",
               position: "relative",
-               
+
+
             }}
           >
             <CardHeader
@@ -72,9 +74,7 @@ const MentionProjects = ({ currentUsers, datas, mention }) => {
                 left: "0",
                 width: "100%",
                 color: "white",
-                "&.MuiCardHeader-subheader": {
-                  color: "red",
-                }
+
               }}
               avatar={
                 <Avatar
@@ -97,7 +97,7 @@ const MentionProjects = ({ currentUsers, datas, mention }) => {
                 </IconButton>
               }
               title={datas?.projectName}
-              subheader={`@${datas?.projectTwitterUsername}`}
+              subheader={<Typography variant="body2" sx={{ fontSize: "0.8rem" }}>{`@${datas?.projectTwitterUsername}`}</Typography>}
             />
           </Typography>
 
@@ -166,12 +166,12 @@ const MentionProjects = ({ currentUsers, datas, mention }) => {
               <HiChevronDoubleDown />
             </ExpandMore>
           </CardActions>
-          <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <Collapse in={expanded} timeout="auto" unmountOnExit sx={{overflow:"hidden"}}>
             <Typography
               variant="body2"
               color="text.secondary"
-              sx={{ paddingLeft: "10px", paddingRight: "10px" }}
-            >
+              sx={{ paddingLeft: "10px", paddingRight: "10px",overflow: "hidden", textOverflow: "ellipsis" }}
+            >,
               {!mention ? (
                 <>
                   <CardActions
@@ -235,7 +235,7 @@ const MentionProjects = ({ currentUsers, datas, mention }) => {
                   <CardActions
                     sx={{
                       justifyContent: "space-between",
-
+                        
                       padding: "unset !important",
                     }}
                     disableSpacing
@@ -264,7 +264,7 @@ const MentionProjects = ({ currentUsers, datas, mention }) => {
               ) : null}
 
               {currentUserr && (
-                <UserMentions currentUser={currentUserr} data={dataa} />
+                <UserMentions  currentUser={currentUserr} data={dataa} />
               )}
             </Typography>
 

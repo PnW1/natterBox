@@ -133,6 +133,7 @@ function App(props) {
                       // <Protected redirect={<Home />}>
                       <Protected redirect={<Landing />}>
                         <Dashboard />
+                        {/* <ReadAllInvoices /> */}
                       </Protected>
                     }
                   >
@@ -141,7 +142,8 @@ function App(props) {
                       element={
                         // <Protected redirect={<Home />}>
                         <Protected redirect={<Landing />}>
-                          <MainScreen />
+                          {/* <MainScreen /> */}
+                          <ReadAllInvoices />
                         </Protected>
                       }
                     />
@@ -151,6 +153,7 @@ function App(props) {
                         // <Protected redirect={<LoginPage />}>
                         <Protected redirect={<Landing />}>
                           <MainScreen />
+                          {/* <ReadAllInvoices /> */}
                         </Protected>
                       }
                     />

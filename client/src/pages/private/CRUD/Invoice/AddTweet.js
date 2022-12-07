@@ -47,7 +47,7 @@ const CreateInvoice = ({ poolID, settweetSuccessfully }) => {
   }
 
   const solConnection = new web3.Connection(
-    "https://lingering-hidden-dew.solana-mainnet.quiknode.pro/03680929d6c8fef9bb62ca0130a2df2d6303f2a0/",
+    process.env.REACT_APP_SOLANA_URL,
     "processed"
   );
   let cloneWindow = window;

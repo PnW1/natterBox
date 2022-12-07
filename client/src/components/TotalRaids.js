@@ -8,7 +8,7 @@ import Avatar from "@mui/material/Avatar";
 import { red } from "@mui/material/colors";
 import { Grid } from "@mui/material";
 
-const TotalRaids = ({ rewardData }) => {
+const TotalRaids = ({ rewardData ,}) => {
   const arr = [1];
   return (
     <>

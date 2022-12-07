@@ -186,6 +186,7 @@
   height: 2.4rem !important;
   background-color: #2c2b2b;
   border-color: #2c2b2b;
+
 }
 #privateToggler {
   top: 10;
@@ -206,7 +207,7 @@
 .nav-link {
   display: flex !important;
   gap: 10px;
-  padding-left: 50px !important;
+  padding-left: 5px !important;
 }
 .sidebar-links:hover {
   color: #00acee !important;
@@ -740,14 +741,14 @@
 
 /* ============== userDashboard style end ============ */
 
-.css-83ijpv-MuiTypography-root {
-  color: white !important;
+/* .css-83ijpv-MuiTypography-root {
+  color: red !important;
   font-size: 10px !important;
-}
+} */
 
 
 .css-mbfek{
-  color:white !important;
+  color:blue !important;
 }
 
 /* ===== reward and account cards style =======  */
@@ -1458,7 +1459,13 @@
   /* line-height: 84px; */
   text-transform: uppercase;
 }
-
+.nav1234{
+  display: flex;
+  justify-content: center;
+  margin-right: 20pxpx;
+  align-items: center;
+ 
+}
 @media (min-width: 975px) and (max-width: 1060px) {
   .grid-img1,
   .grid-img2,

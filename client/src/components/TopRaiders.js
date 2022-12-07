@@ -6,9 +6,12 @@ import IconButton from "@mui/material/IconButton";
 import CardHeader from "@mui/material/CardHeader";
 import Avatar from "@mui/material/Avatar";
 import { red } from "@mui/material/colors";
+import SingleRaider from "./SingleRaider";
 
-const TopRaiders = () => {
-  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const TopRaiders = ({ currentUser,data,
+  userNotIncludeProjectsForMention,
+}) => {
+  const arr = [1, 2, 3,];
   return (
     <>
       <Typography
@@ -32,62 +35,18 @@ const TopRaiders = () => {
           </Typography>
           <Icon color="white" icon="teenyicons:adjust-horizontal-outline" />
         </Typography>
-        {arr.map((item, i) => (
-          <Typography sx={{background: 'linear-gradient(98.97deg, #2C2C2E 1.64%, rgba(0, 0, 0, 0.5) 102.85%)',
-            border: '1px solid #313131',
-            borderRadius: '12px', margin:"0 5px 5px 0"}} key={i}>
-            <CardHeader
-              className="nft-blaze"
-              sx={{
-                // position: "absolute",
-                padding: "10px 10px 10px 10px",
-                bottom: "0",
-                left: "0",
-                width: "100%",
-                color: "white",
-              }}
-              avatar={
-                <Avatar
-                  sx={{
-                    bgcolor: red[500],
-                  }}
-                  aria-label="recipe"
-                >
-                  R
-                </Avatar>
-              }
-              action={
-                <IconButton
-                  aria-label="settings"
-                  sx={{
-                    color: "white",
-                  }}
-                >
-                  {/* <MoreVertIcon /> */}
-                  <Typography
-                    className="raids_card"
-                    component="div"
-                    sx={{
-                      width: "67px",
-                      fontSize: "17px",
-                      height: "44px",
-                      // background: "#00ACEE",
-                      // borderRadius: "50px 0px 0px 50px",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      color:"#47DDFC"
-                    }}
-                  >
-                    + 2SOL
-                  </Typography>
-                </IconButton>
-              }
-              title="NFT Blaze"
-              subheader="@huehewiuewjiw"
+
+        {  currentUser &&
+          userNotIncludeProjectsForMention &&
+          userNotIncludeProjectsForMention?.map((data, i) => (
+            <SingleRaider
+              key={i}
+              currentUsers={currentUser}
+              datas={data}
+              mention={true}
+              data={data}
             />
-          </Typography>
-        ))}
+          ))}
         <Typography style={{ textAlign: "center", marginTop: "20px" }}>
           <Button
             variant="outlined"

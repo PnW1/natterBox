@@ -179,6 +179,7 @@ const Tweets = (props) => {
   // ======================
   const [getAllInvoices, setGetAllInvoices] = useState();
   const [flag, setFlag] = useState(false);
+  const [getTweets, setGetTweets] = useState([]);
   const { wallet, connect, sendTransaction, connecting, connected, publicKey } =
     useWallet();
   const [dispatch] = useDispatchFunc();
@@ -193,7 +194,7 @@ const Tweets = (props) => {
   }, [publicKey]);
 
   const solConnection = new web3.Connection(
-    "https://lingering-hidden-dew.solana-mainnet.quiknode.pro/03680929d6c8fef9bb62ca0130a2df2d6303f2a0/",
+    process.env.REACT_APP_SOLANA_URL,
     "processed"
   );
 
@@ -223,6 +224,8 @@ const Tweets = (props) => {
     }
     if (res?.data?.invoicesFound) {
       setGetAllInvoices(res?.data?.invoicesFound);
+
+
     } else {
       alert("No Tweet Found");
     }
@@ -230,6 +233,7 @@ const Tweets = (props) => {
 
   useEffect(() => {
     getAllTweets();
+
   }, []);
 
   useEffect(() => {
@@ -277,11 +281,14 @@ const Tweets = (props) => {
               rewardCategory: data?.category,
               splToken: data?.splToken,
             };
+            setGetTweets(data?.tweets);
 
             data?.tweets?.map((tweet) => {
+
               let isRetweeted = props?.auth?.raidStatus?.retweetStatus.some(
                 (item) => item.tweetId === tweet.tweetId
               );
+
               if (isRetweeted) {
                 props?.auth?.raidStatus?.retweetStatus?.map((retweet) => {
                   if (tweet.tweetId === retweet.tweetId) {
@@ -351,6 +358,7 @@ const Tweets = (props) => {
       fontSize: 14,
     },
   }));
+  console.log(getAllInvoices?.pool, "heelo")
   return (
     <>
       <Box sx={{ display: "flex", background: "#272727", minHeight: "100vh" }}>
@@ -667,7 +675,18 @@ const Tweets = (props) => {
                     borderRadius: "20px",
                   }}
                 >
-                  <TopRaiders />
+                  <TopRaiders currentUser={props.auth?.userName}
+                    userProjectsForMention={userProjectsForMention}
+                    userProjectsForRaid={userProjectsForRaid}
+                    userNotIncludeProjectsForMention={
+                      userNotIncludeProjectsForMention
+                    }
+                    userNotIncludeProjectsForRaid={
+                      userNotIncludeProjectsForRaid
+                    }
+                    data={getAllInvoices}
+                  />
+
                   {/* <Typography
                     style={{ textAlign: "center", marginTop: "20px" }}
                   >
