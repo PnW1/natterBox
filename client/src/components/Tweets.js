@@ -73,6 +73,8 @@ const drawerWidth = 80;
 const Tweets = (props) => {
   const [{ token }] = useStatesFunc();
 
+  const [disableraid, setdisableraid] = useState(false);
+
   const [value, setValue] = React.useState("1");
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -130,32 +132,38 @@ const Tweets = (props) => {
         ].map((obj, index) => (
           <ListItem key={index} disablePadding>
             <ListItemButton
-              // className="dashboard_list text-white"
+              disabled={
+                obj.text == "Raid to Earn" || obj.text == "Profile"
+                  ? true
+                  : false
+              }
               onClick={() => setSelectedComponent(obj.text)}
-              className={`text-info justify-content-center fs-3 ${selectedComponent === obj.text ? "text-info" : "text-white"
-                }`}
+              className={`text-info justify-content-center fs-3 ${
+                selectedComponent === obj.text ? "text-info" : "text-white"
+              }`}
             >
               <Tooltip
-                title={`${index === 0
-                  ? "dashboard"
-                  : index === 1
+                title={`${
+                  index === 0
+                    ? "dashboard"
+                    : index === 1
                     ? "Mention to Earn"
                     : index === 2
-                      ? "Raid to Earn"
-                      : index === 3
-                        ? "Sweep to Earn"
-                        : index === 4
-                          ? "Profile"
-                          : index === 5
-                            ? "Rewards"
-                            : index === 6
-                              ? "Accounts"
-                              : index === 7
-                                ? "Support"
-                                : index === 8
-                                  ? "Setting"
-                                  : "Stats"
-                  }`}
+                    ? "Raid to Earn"
+                    : index === 3
+                    ? "Sweep to Earn"
+                    : index === 4
+                    ? "Profile"
+                    : index === 5
+                    ? "Rewards"
+                    : index === 6
+                    ? "Accounts"
+                    : index === 7
+                    ? "Support"
+                    : index === 8
+                    ? "Setting"
+                    : "Stats"
+                }`}
               >
                 <ListItemIcon className="dasbboard_icons m-auto">
                   <Icon
@@ -224,8 +232,6 @@ const Tweets = (props) => {
     }
     if (res?.data?.invoicesFound) {
       setGetAllInvoices(res?.data?.invoicesFound);
-
-
     } else {
       alert("No Tweet Found");
     }
@@ -233,7 +239,6 @@ const Tweets = (props) => {
 
   useEffect(() => {
     getAllTweets();
-
   }, []);
 
   useEffect(() => {
@@ -284,7 +289,6 @@ const Tweets = (props) => {
             setGetTweets(data?.tweets);
 
             data?.tweets?.map((tweet) => {
-
               let isRetweeted = props?.auth?.raidStatus?.retweetStatus.some(
                 (item) => item.tweetId === tweet.tweetId
               );
@@ -358,7 +362,7 @@ const Tweets = (props) => {
       fontSize: 14,
     },
   }));
-  console.log(getAllInvoices?.pool, "heelo")
+  console.log(getAllInvoices?.pool, "heelo");
   return (
     <>
       <Box sx={{ display: "flex", background: "#272727", minHeight: "100vh" }}>
@@ -675,7 +679,8 @@ const Tweets = (props) => {
                     borderRadius: "20px",
                   }}
                 >
-                  <TopRaiders currentUser={props.auth?.userName}
+                  <TopRaiders
+                    currentUser={props.auth}
                     userProjectsForMention={userProjectsForMention}
                     userProjectsForRaid={userProjectsForRaid}
                     userNotIncludeProjectsForMention={

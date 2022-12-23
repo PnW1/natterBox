@@ -13,6 +13,7 @@ import { ADMIN } from "../../../../helpers/UserRoles";
 
 import NothingToShow from "../../Others/NothingToShow";
 import useUserFunc from "../../../../hooks/useUserFunc";
+import { stat } from "fs";
 
 const ReadOneUser = () => {
   const [state, setState] = useState();
@@ -64,10 +65,21 @@ const ReadOneUser = () => {
   }
 
   return (
-    <div className="col p-5" style={{background: '#2C2C2E',
-    boxShadow: '11.7355px 11.7355px 29.3386px rgba(0, 0, 0, 0.5)',
-    borderRadius: '19.5591px'}}>
-      <div className="card" style={{background: '#2C2C2E', boxShadow: '11.7355px 11.7355px 29.3386px rgba(0, 0, 0, 0.5)',}}>
+    <div
+      className="col p-5"
+      style={{
+        background: "#2C2C2E",
+        boxShadow: "11.7355px 11.7355px 29.3386px rgba(0, 0, 0, 0.5)",
+        borderRadius: "19.5591px",
+      }}
+    >
+      <div
+        className="card"
+        style={{
+          background: "#2C2C2E",
+          boxShadow: "11.7355px 11.7355px 29.3386px rgba(0, 0, 0, 0.5)",
+        }}
+      >
         <div>
           <table className="table fw-bold text-white">
             <thead>

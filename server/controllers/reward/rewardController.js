@@ -36,7 +36,7 @@ const idl = JSON.parse(
 
 anchor.setProvider(
   anchor.Provider.local(
-    process.env.REACT_APP_SOLANA_URL
+    "https://green-polished-fire.solana-mainnet.quiknode.pro/0b8461a7cacccb991a0872d883157a01b7698b93/"
   )
 );
 
@@ -46,7 +46,7 @@ anchor.setProvider(
 // });
 
 var solConnection = new web3.Connection(
-  process.env.REACT_APP_SOLANA_URL,
+  "https://green-polished-fire.solana-mainnet.quiknode.pro/0b8461a7cacccb991a0872d883157a01b7698b93/",
   {
     commitment: "confirmed",
     confirmTransactionInitialTimeout: 12000,
@@ -129,8 +129,11 @@ const getRecords = async (req, res) => {
         }
       });
       return res.send({ reward: tempArray });
+    } else {
+      return res.send("No data found");
     }
   } catch (error) {
+    return res.send({ error: error.message });
     console.log(error.message);
   }
 };

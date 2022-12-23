@@ -51,7 +51,6 @@ const invoiceSchema = schema({
   },
   discordForProjectContact: {
     type: String,
-    required: true,
   },
   invoiceDate: {
     type: String,

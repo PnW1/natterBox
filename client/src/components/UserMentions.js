@@ -60,8 +60,11 @@ const UserMentions = ({ currentUser, data }) => {
         );
         if (response.data.data) {
           toast.success(response.data.msg);
+          console.log("sucess");
         } else {
           toast.error(response.data.msg);
+          console.log("fail");
+          console.log(response.data);
         }
       }
     } catch (e) {
@@ -153,7 +156,11 @@ const UserMentions = ({ currentUser, data }) => {
               <>
                 <option
                   key={i}
-                  style={{ fontSize: "12px", overflow: "hidden", textOverflow: "ellipsis" }}
+                  style={{
+                    fontSize: "12px",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                  }}
                   value={pool.splToken}
                 >
                   {pool.splToken}
