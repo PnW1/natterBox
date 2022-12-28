@@ -8,5 +8,6 @@ export const fetchUser = () => async (dispatch) => {
       withCredentials: true,
     }
   );
+
   dispatch({ type: FETCH_USER, payload: res.data });
 };

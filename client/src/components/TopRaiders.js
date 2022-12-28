@@ -21,8 +21,8 @@ const TopRaiders = ({
   // console.log("mycurrentuser", userNotIncludeProjectsForMention);
   // console.log("mycurrentuser", data[0].projectTwitterUsername);
   // console.log("mycurrentuser", user);
-  console.log("mycurrentuser", currentUser);
-  console.log("userfilter", currentUser.rewardStatus[0].tweetText);
+  // console.log("mycurrentuser", currentUser);
+  // console.log("userfilter", currentUser.rewardStatus[0].tweetText);
   // if (data && currentUser) {
   //   const found = data.find(
   //     (element) => element.projectTwitterUsername == currentUser
