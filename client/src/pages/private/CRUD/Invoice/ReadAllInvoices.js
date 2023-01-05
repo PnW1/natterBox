@@ -39,12 +39,14 @@ const ReadAllInvoices = () => {
     <>
       <div
         className=" container  p-md-5 my-3 text-dark fw-bold "
-        style={{ background: '#2C2C2E',
-boxShadow: '11.7355px 11.7355px 29.3386px rgba(0, 0, 0, 0.5)',
-borderRadius: '19.5591px'}}
+        style={{
+          background: "#2C2C2E",
+          boxShadow: "11.7355px 11.7355px 29.3386px rgba(0, 0, 0, 0.5)",
+          borderRadius: "19.5591px",
+        }}
       >
         <div className="px-md-4 pt-2 pb-2">
-          <div className="col border border-1" style={{overflowX:"auto"}}>
+          <div className="col border border-1" style={{ overflowX: "auto" }}>
             <table className="table text-white">
               <thead>
                 <tr>
@@ -65,7 +67,18 @@ borderRadius: '19.5591px'}}
                         navigate(`/app/invoice/readOne/${invoiceObj._id}`)
                       }
                     >
-                      <td>{invoiceObj.projectName}</td>
+                      {invoiceObj.projectName.charAt(
+                        invoiceObj.projectName.length - 2
+                      ) == "#" ? (
+                        <td>{invoiceObj.projectName.slice(0, -2)}</td>
+                      ) : invoiceObj.projectName.charAt(
+                          invoiceObj.projectName.length - 3
+                        ) == "#" ? (
+                        <td>{invoiceObj.projectName.slice(0, -3)}</td>
+                      ) : (
+                        <td>{invoiceObj.projectName}</td>
+                      )}
+
                       <td>{invoiceObj.projectTwitterUsername}</td>
                       <td>{invoiceObj.discordForProjectContact}</td>
                       <td>{invoiceObj.mintCreatorAddress}</td>

@@ -97,7 +97,19 @@ const SingleRaider = ({ currentUsers }) => {
               )}
             </IconButton>
           }
-          title={currentUsers?.projectName}
+          title={
+            currentUsers?.projectName.charAt(
+              currentUsers?.projectName.length - 2
+            ) == "#" ? (
+              currentUsers?.projectName.slice(0, -2)
+            ) : currentUsers?.projectName.charAt(
+                currentUsers?.projectName.length - 3
+              ) == "#" ? (
+              currentUsers?.projectName.slice(0, -3)
+            ) : (
+              <td>{currentUsers?.projectName}</td>
+            )
+          }
           subheader={
             <Typography variant="body2" sx={{ fontSize: "0.8rem" }}>
               {currentUsers.tweetText}

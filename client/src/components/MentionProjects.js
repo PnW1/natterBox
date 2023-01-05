@@ -16,13 +16,9 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Grid from "@mui/material/Grid";
 import { Icon } from "@iconify/react";
 
-
-
 import UserMentions from "./UserMentions";
 
-
 import { HiChevronDoubleDown } from "react-icons/hi";
-
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -52,10 +48,14 @@ const MentionProjects = ({ currentUsers, datas, mention }) => {
       <Grid item xs={12} md={6} lg={4} xl={3} sx={{ position: "relative" }}>
         {/* <div className=""> */}
         <Card
-          sx={{ maxWidth: 345, backgroundColor: "black", borderRadius: "17px", margin: "0 auto" }}
+          sx={{
+            maxWidth: 345,
+            backgroundColor: "black",
+            borderRadius: "17px",
+            margin: "0 auto",
+          }}
         >
           <Typography
-
             color="white"
             sx={{
               background: `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%) ,url("${datas?.imageUrl}")`,
@@ -63,8 +63,6 @@ const MentionProjects = ({ currentUsers, datas, mention }) => {
               backgroundSize: "cover",
               backgroundPosition: "center",
               position: "relative",
-
-
             }}
           >
             <CardHeader
@@ -74,7 +72,6 @@ const MentionProjects = ({ currentUsers, datas, mention }) => {
                 left: "0",
                 width: "100%",
                 color: "white",
-
               }}
               avatar={
                 <Avatar
@@ -83,7 +80,7 @@ const MentionProjects = ({ currentUsers, datas, mention }) => {
                   }}
                   aria-label="recipe"
                 >
-                  R
+                  A
                 </Avatar>
               }
               action={
@@ -96,19 +93,33 @@ const MentionProjects = ({ currentUsers, datas, mention }) => {
                   <MoreVertIcon />
                 </IconButton>
               }
-              title={datas?.projectName}
-              subheader={<Typography variant="body2" sx={{ fontSize: "0.8rem" }}>{`@${datas?.projectTwitterUsername}`}</Typography>}
+              title={
+                datas?.projectName.charAt(datas?.projectName.length - 2) ==
+                "#" ? (
+                  datas?.projectName.slice(0, -2)
+                ) : datas?.projectName.charAt(datas?.projectName.length - 3) ==
+                  "#" ? (
+                  datas?.projectName.slice(0, -3)
+                ) : (
+                  <td>{datas?.projectName}</td>
+                )
+              }
+              subheader={
+                <Typography
+                  variant="body2"
+                  sx={{ fontSize: "0.8rem" }}
+                >{`@${datas?.projectTwitterUsername}`}</Typography>
+              }
             />
           </Typography>
-
 
           {!mention ? (
             <>
               <CardContent>
                 <Typography variant="body2" color="white">
-                  This impressive paella is a perfect party dish and a fun meal to
-                  cook together with your guests. Add 1 cup of frozen peas along with
-                  the mussels, if you like.
+                  This impressive paella is a perfect party dish and a fun meal
+                  to cook together with your guests. Add 1 cup of frozen peas
+                  along with the mussels, if you like.
                 </Typography>
               </CardContent>
               <Typography
@@ -166,12 +177,23 @@ const MentionProjects = ({ currentUsers, datas, mention }) => {
               <HiChevronDoubleDown />
             </ExpandMore>
           </CardActions>
-          <Collapse in={expanded} timeout="auto" unmountOnExit sx={{overflow:"hidden"}}>
+          <Collapse
+            in={expanded}
+            timeout="auto"
+            unmountOnExit
+            sx={{ overflow: "hidden" }}
+          >
             <Typography
               variant="body2"
               color="text.secondary"
-              sx={{ paddingLeft: "10px", paddingRight: "10px",overflow: "hidden", textOverflow: "ellipsis" }}
-            >,
+              sx={{
+                paddingLeft: "10px",
+                paddingRight: "10px",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
+              ,
               {!mention ? (
                 <>
                   <CardActions
@@ -235,7 +257,7 @@ const MentionProjects = ({ currentUsers, datas, mention }) => {
                   <CardActions
                     sx={{
                       justifyContent: "space-between",
-                        
+
                       padding: "unset !important",
                     }}
                     disableSpacing
@@ -262,12 +284,10 @@ const MentionProjects = ({ currentUsers, datas, mention }) => {
                   </CardActions>
                 </>
               ) : null}
-
               {currentUserr && (
-                <UserMentions  currentUser={currentUserr} data={dataa} />
+                <UserMentions currentUser={currentUserr} data={dataa} />
               )}
             </Typography>
-
           </Collapse>
           {!mention ? (
             <CardActions
@@ -293,9 +313,7 @@ const MentionProjects = ({ currentUsers, datas, mention }) => {
                 <ShareIcon />
               </IconButton>
             </CardActions>
-          ) : null
-
-          }
+          ) : null}
         </Card>
 
         {/* </div> */}
@@ -552,11 +570,7 @@ const MentionProjects = ({ currentUsers, datas, mention }) => {
             </CardActions>
           </Card> */}
 
-
-
-
         {/* ================================================= */}
-
       </Grid>
     </>
   );

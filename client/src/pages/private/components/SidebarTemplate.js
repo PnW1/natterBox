@@ -115,7 +115,7 @@ const SidebarTemplate = ({ currentUser, navArray, setShowSideBar }) => {
                           </div>
                         ) : index === 2 ? (
                           <div className="nav1234">
-                            <Icon icon="codicon:project" />
+                            <Icon icon="material-symbols:dashboard" />
                             <Typography sx={{ paddingLeft: "5px" }}>
                               Dashboard
                             </Typography>
@@ -124,14 +124,14 @@ const SidebarTemplate = ({ currentUser, navArray, setShowSideBar }) => {
                           <div className="nav1234">
                             <Icon icon="codicon:project" />
                             <Typography sx={{ paddingLeft: "5px" }}>
-                              CreateUser
+                              New User
                             </Typography>
                           </div>
                         ) : (
                           <div className="nav1234">
                             <Icon icon="material-symbols:dashboard" />
                             <Typography sx={{ paddingLeft: "5px" }}>
-                              AllUsers
+                              All Users
                             </Typography>
                           </div>
                         )}

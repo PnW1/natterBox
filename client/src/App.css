@@ -186,7 +186,6 @@
   height: 2.4rem !important;
   background-color: #2c2b2b;
   border-color: #2c2b2b;
-
 }
 #privateToggler {
   top: 10;
@@ -746,9 +745,8 @@
   font-size: 10px !important;
 } */
 
-
-.css-mbfek{
-  color:blue !important;
+.css-mbfek {
+  color: blue !important;
 }
 
 /* ===== reward and account cards style =======  */
@@ -1459,12 +1457,11 @@
   /* line-height: 84px; */
   text-transform: uppercase;
 }
-.nav1234{
+.nav1234 {
   display: flex;
   justify-content: center;
   margin-right: 20pxpx;
   align-items: center;
- 
 }
 @media (min-width: 975px) and (max-width: 1060px) {
   .grid-img1,

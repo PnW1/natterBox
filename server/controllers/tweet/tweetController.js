@@ -1030,12 +1030,12 @@ const mentionClaim = async (req, res) => {
             userTweetRecord.data.created_at
           ).unix();
 
-          if (liveTweetCreatedAt + rewardFrequencyInSecond > moment().unix()) {
-            return res.send({
-              msg: "Please Wait... after tweeting a tweet",
-              type: "Failed",
-            });
-          }
+          // if (liveTweetCreatedAt + rewardFrequencyInSecond > moment().unix()) {
+          //   return res.send({
+          //     msg: "Please Wait... after tweeting a tweet",
+          //     type: "Failed",
+          //   });
+          // }
           userStatusUpdated = await User.findOneAndUpdate(
             {
               twitterId: twitterId,
