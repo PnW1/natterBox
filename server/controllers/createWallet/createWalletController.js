@@ -7,6 +7,7 @@ const { Program, web3 } = require("@project-serum/anchor");
 const anchor = require("@project-serum/anchor");
 const bs58 = require("bs58");
 const nacl = require("tweetnacl");
+const {v4} = require("uuid");
 
 const {
   TOKEN_PROGRAM_ID,
