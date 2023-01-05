@@ -25,7 +25,7 @@ const CreateInvoiceController = async (req, res) => {
     const findProjectName = await Invoice.find({invoiceCreater: id,projectName: {$regex: projectName}}).sort({key: 1});
     // console.log("findProjectName: ", findProjectName)
     let tempName;
-    if(findProjectName){
+    if(findProjectName.length > 0){
       let geProjectName = findProjectName[findProjectName.length - 1].projectName;
       let getNumber = geProjectName.split('#')[1];
       if(getNumber === undefined){
