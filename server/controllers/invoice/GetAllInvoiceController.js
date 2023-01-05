@@ -19,7 +19,9 @@ const GetAllInvoiceController = async (req, res) => {
     } else {
       invoiceArray = await Invoice.find({
         invoiceCreater: mongoose.Types.ObjectId(id),
+        visibility: {$exists: false} || true
       }).populate("invoiceCreater");
+      // console.log("invoiceArray: ",invoiceArray)
     }
     if (invoiceArray.length < 1) {
       return res.status(404).send({ msg: "No Project Found", type: "error" });
