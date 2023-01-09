@@ -196,6 +196,18 @@ const Landing = (props) => {
     }
   };
 
+  useEffect(() => {
+    if (istrue == 5) {
+      setTimeout(() => {
+        setIsTrue(6);
+      }, 1000);
+    } else if (istrue == 6) {
+      setTimeout(() => {
+        signinUser();
+      }, 1000);
+    }
+  }, [istrue]);
+
   const classes = useStyles();
   return (
     <>

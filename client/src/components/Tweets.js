@@ -615,6 +615,16 @@ const Tweets = (props) => {
                           />
                         </TabList>
                       </Box>
+                      <Box>
+                        <Typography
+                          color="white"
+                          width="100%"
+                          textAlign="center"
+                        >
+                          NOTE: Please wait for 24 hours before applying for
+                          Claim on your Tweet.
+                        </Typography>
+                      </Box>
 
                       <Box
                         className="tabs_container"
