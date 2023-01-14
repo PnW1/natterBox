@@ -283,11 +283,11 @@ export default function ThreadModal({
                     marginBottom: "0px",
                   }}
 
-                  // avatar={
+                  avatar={
 
-                  // }
-                  // title="Sarah Parker"
-                  // subheader="@saraparker079"
+                  }
+                  title="Sarah Parker"
+                  subheader="@saraparker079"
                 >
                   <Avatar
                     sx={{
