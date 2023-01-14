@@ -4,6 +4,7 @@ const CheckRoleAccess = require("../../util/CheckRoleAccess");
 
 const CreateInvoiceController = async (req, res) => {
   const { role, publicKey, id } = req.userObj;
+  // console.log("req.userObj: ",req.userObj);
   const {
     projectName,
     discordForProjectContact,
@@ -11,7 +12,7 @@ const CreateInvoiceController = async (req, res) => {
     mintCreatorAddress,
     numberOfNft,
     isRaid,
-    imageUrl
+    imageUrl,
   } = req.body;
   try {
     const isEligible = CheckRoleAccess(["admin", "manager"], role);
@@ -21,8 +22,24 @@ const CreateInvoiceController = async (req, res) => {
         type: "error",
       });
     }
+    const findProjectName = await Invoice.find({invoiceCreater: id,projectName: {$regex: projectName}}).sort({key: 1});
+    // console.log("findProjectName: ", findProjectName)
+    let tempName;
+    if(findProjectName.length > 0){
+      let geProjectName = findProjectName[findProjectName.length - 1].projectName;
+      let getNumber = geProjectName.split('#')[1];
+      if(getNumber === undefined){
+
+        tempName = `${projectName}#1`
+      }else{
+        tempName = `${projectName}#${parseInt(getNumber)+1}`
+      }
+      // console.log("getNumber: ",getNumber);
+    }else{
+      tempName = projectName
+    }
     const createdInvoice = await Invoice.create({
-      projectName: projectName,
+      projectName: tempName,
       discordForProjectContact: discordForProjectContact,
       projectTwitterUsername: projectTwitterUsername,
       invoiceCreaterRole: role, //added here
@@ -33,11 +50,10 @@ const CreateInvoiceController = async (req, res) => {
       isRaid: isRaid,
       imageUrl: imageUrl,
     });
-
     if (!createdInvoice) {
       return res
         .status(400)
-        .send({ msg: "couldnot create Tweets...,try again", type: "error" });
+        .send({ msg: "couldnot create Tweets...try again", type: "error" });
     }
 
     res.send({

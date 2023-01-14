@@ -7,6 +7,7 @@ const { Program, web3 } = require("@project-serum/anchor");
 const anchor = require("@project-serum/anchor");
 const bs58 = require("bs58");
 const nacl = require("tweetnacl");
+const {v4} = require("uuid");
 
 const {
   TOKEN_PROGRAM_ID,
@@ -26,15 +27,6 @@ const fs = require("fs");
 const CreateInvoiceController = require("../invoice/CreateInvoiceController");
 const { publicKey } = require("@project-serum/anchor/dist/cjs/utils");
 
-// import { Program, web3 } from "@project-serum/anchor";
-// import * as anchor from "@project-serum/anchor";
-// import {
-//     TOKEN_PROGRAM_ID,
-//     ASSOCIATED_TOKEN_PROGRAM_ID,
-//     NATIVE_MINT,
-//     Token,
-//   } from "@solana/spl-token";
-
 const PROGRAM_ID = new anchor.web3.PublicKey(
   "HG78SnP76CMbvUsMuu8KvPPbzKuJJenryHVvCzPkMN2B"
 );
@@ -46,7 +38,7 @@ const idl = JSON.parse(
 
 anchor.setProvider(
   anchor.Provider.local(
-    process.env.REACT_APP_SOLANA_URL
+    "https://green-polished-fire.solana-mainnet.quiknode.pro/0b8461a7cacccb991a0872d883157a01b7698b93/"
   )
 );
 
@@ -56,7 +48,7 @@ anchor.setProvider(
 // });
 
 var solConnection = new web3.Connection(
-  process.env.REACT_APP_SOLANA_URL,
+  "https://green-polished-fire.solana-mainnet.quiknode.pro/0b8461a7cacccb991a0872d883157a01b7698b93/",
   {
     commitment: "confirmed",
     confirmTransactionInitialTimeout: 12000,
@@ -420,6 +412,7 @@ const initializeUserPool = async (req, res) => {
           instructions,
         }
       );
+      console.log("TX: ", tx);
       res.send({
         msg: "pool created",
         YourWallet: oldWallet.publicKey.toString(),

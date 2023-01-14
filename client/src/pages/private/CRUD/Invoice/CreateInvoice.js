@@ -15,7 +15,14 @@ import Loader from "../../../../helpers/Loader";
 import NothingToShow from "../../Others/NothingToShow";
 import { ADMIN, MANAGER } from "../../../../helpers/UserRoles";
 import useUserFunc from "../../../../hooks/useUserFunc";
-import { Tooltip, FormGroup, Switch, FormControlLabel } from "@mui/material";
+import {
+  Tooltip,
+  FormGroup,
+  Switch,
+  FormControlLabel,
+  FormControl,
+  RadioGroup,
+} from "@mui/material";
 import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
@@ -24,6 +31,7 @@ import StepContent from "@mui/material/StepContent";
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
+import Radio from "@mui/material/Radio";
 import {
   Keypair,
   Transaction,
@@ -44,6 +52,17 @@ import ReadAllInvoices from "./ReadAllInvoices";
 import AddTweet from "./AddTweet";
 
 const CreateInvoice = ({ auth }) => {
+  const [value, setValue] = React.useState("mention");
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+    if (value === "mention") {
+      setIsRaid(false);
+    } else {
+      setIsRaid(true);
+    }
+  };
+
   const { connect, publicKey } = useWallet();
   const initialState = {
     projectName: "",
@@ -51,7 +70,7 @@ const CreateInvoice = ({ auth }) => {
     discordForProjectContact: "",
     mintCreatorAddress: "",
     numberOfNft: "",
-    imageUrl: ""
+    imageUrl: "",
   };
   const [activeStep, setActiveStep] = React.useState(0);
   const [stateValues, setStateValues] = useState(initialState);
@@ -98,9 +117,7 @@ const CreateInvoice = ({ auth }) => {
         {
           label: "Set Up Project",
         },
-        {
-          label: "Transfer SOL and SPL token",
-        },
+
         {
           label: "Set up Tweet To Earn Pool",
         },
@@ -119,9 +136,7 @@ const CreateInvoice = ({ auth }) => {
         {
           label: "Set Up Project",
         },
-        {
-          label: "Transfer SOL and SPL token",
-        },
+
         {
           label: "Set up Tweet To Earn Pool",
         },
@@ -170,14 +185,10 @@ const CreateInvoice = ({ auth }) => {
         projectTwitterUsername,
         mintCreatorAddress,
         numberOfNft,
-        imageUrl
+        imageUrl,
       } = stateValues;
 
-      if (
-        !projectName ||
-        !discordForProjectContact ||
-        !projectTwitterUsername
-      ) {
+      if (!projectName || !projectTwitterUsername) {
         toast.warning("No empty values allowed");
         dispatch({ type: "loadingStop" });
 
@@ -191,7 +202,7 @@ const CreateInvoice = ({ auth }) => {
         mintCreatorAddress,
         numberOfNft,
         isRaid,
-        imageUrl
+        imageUrl,
       };
       const { data } = await CreateInvoiceApi(body, token);
       console.log(data?.createdInvoice?.projectName, "pooldataID");
@@ -449,13 +460,30 @@ const CreateInvoice = ({ auth }) => {
     }
   };
   const handlerPreview = () => {
+    console.log("preview working");
     if (ProjectName) {
+      console.log("projectname", ProjectName);
       navigate(`/projects/${ProjectName}`);
     }
   };
 
   return (
     <Box sx={{ maxWidth: "85%", margin: "auto" }}>
+      <Typography color="white" width="100%" pb={5}>
+        {" "}
+        <span>
+          {" "}
+          <Typography fontWeight="bold">
+            <u>Note</u>{" "}
+          </Typography>
+        </span>{" "}
+        <span style={{ fontWeight: "bold" }}>• </span> Please avoid creating
+        projects with same name <br />
+        <span style={{ fontWeight: "bold" }}>• </span> Only one pool can be
+        added with a token at a time for e.g XYZ token can be used once in a
+        project. If you want to create another pool for XYZ token, you'd have to
+        create another project.
+      </Typography>
       <Stepper activeStep={activeStep} orientation="vertical">
         {steps.map((step, index) => (
           <Step key={step.label}>
@@ -482,10 +510,10 @@ const CreateInvoice = ({ auth }) => {
                   style={
                     isSuccessful
                       ? {
-                        maxWidth: "85%",
-                        margin: "auto",
-                        pointerEvents: "none",
-                      }
+                          maxWidth: "85%",
+                          margin: "auto",
+                          pointerEvents: "none",
+                        }
                       : { maxWidth: "85%", margin: "auto" }
                   }
                 >
@@ -503,10 +531,35 @@ const CreateInvoice = ({ auth }) => {
                         }}
                       >
                         {" "}
-                        <label className="form-label">Mention</label>
                       </Typography>
                       <Typography>
-                        <FormControlLabel
+                        <FormControl>
+                          <RadioGroup
+                            aria-labelledby="demo-controlled-radio-buttons-group"
+                            name="controlled-radio-buttons-group"
+                            value={value}
+                            onChange={handleChange}
+                            row
+                            sx={{
+                              display: "flex",
+                              color: "white",
+                              fontSize: "50px",
+                            }}
+                          >
+                            <FormControlLabel
+                              value="mention"
+                              control={<Radio />}
+                              label="Mention"
+                            />
+                            <FormControlLabel
+                              value="raid"
+                              control={<Radio />}
+                              label="Raid"
+                            />
+                          </RadioGroup>
+                        </FormControl>
+
+                        {/* <FormControlLabel
                           className="text-white"
                           control={
                             <Switch
@@ -516,7 +569,7 @@ const CreateInvoice = ({ auth }) => {
                               }}
                             />
                           }
-                        />
+                        /> */}
                       </Typography>
                       <Typography
                         sx={{
@@ -525,7 +578,6 @@ const CreateInvoice = ({ auth }) => {
                         }}
                       >
                         {" "}
-                        <label className="form-label">Raid</label>
                       </Typography>
                     </Typography>
                   </FormGroup>
@@ -537,10 +589,10 @@ const CreateInvoice = ({ auth }) => {
                     style={
                       isSuccessful
                         ? {
-                          maxWidth: "85%",
-                          margin: "auto",
-                          pointerEvents: "none",
-                        }
+                            maxWidth: "85%",
+                            margin: "auto",
+                            pointerEvents: "none",
+                          }
                         : { maxWidth: "85%", margin: "auto" }
                     }
                   >
@@ -548,7 +600,7 @@ const CreateInvoice = ({ auth }) => {
                       <form disabled className="p-md-3 text-white">
                         {/* invoiceLogo */}
                         <div className="mb-3">
-                          <label className="form-label">Project Name</label>
+                          <label className="form-label">Project Name *</label>
                           <input
                             type="text"
                             id="tweetUrl"
@@ -566,7 +618,7 @@ const CreateInvoice = ({ auth }) => {
 
                         <div className="mb-3">
                           <label className="form-label">
-                            Project Twitter Username
+                            Project Twitter Username *
                           </label>
                           <Tooltip
                             title="Enter Twitter username without '@' sign, and without spaces."
@@ -590,7 +642,7 @@ const CreateInvoice = ({ auth }) => {
 
                         <div className="mb-3">
                           <label className="form-label" htmlFor="timeToclaim">
-                            Discord For Project Contact
+                            Discord For Project Contact (optional)
                           </label>
                           <input
                             type="text"
@@ -609,7 +661,7 @@ const CreateInvoice = ({ auth }) => {
 
                         <div className="mb-3">
                           <label className="form-label">
-                            Creator Address For mint
+                            Creator Address For mint (optional)
                           </label>
                           <input
                             type="text"
@@ -628,7 +680,7 @@ const CreateInvoice = ({ auth }) => {
 
                         <div className="mb-3">
                           <label className="form-label">
-                            Number of Nfts Required
+                            Number of Nfts Required (optional)
                           </label>
                           <input
                             type="text"
@@ -682,142 +734,142 @@ const CreateInvoice = ({ auth }) => {
                   </div>
                 </>
               ) : // ) : isSuccessful && index === 2 ? (
-                index === 2 ? (
-                  <>
-                    <div
-                      className="container my-5 p-3 border border-1 border-info rounded-3"
-                      style={{ maxWidth: "85%", margin: "auto" }}
-                    >
-                      <Typography>
-                        <form disabled className="p-md-3 text-white">
-                          {/* invoiceLogo */}
-                          <div className="mb-3">
-                            <label className="form-label">Add Sols Amount</label>
+              index === 7 ? (
+                <>
+                  <div
+                    className="container my-5 p-3 border border-1 border-info rounded-3"
+                    style={{ maxWidth: "85%", margin: "auto" }}
+                  >
+                    <Typography>
+                      <form disabled className="p-md-3 text-white">
+                        {/* invoiceLogo */}
+                        <div className="mb-3">
+                          <label className="form-label">Add Sols Amount</label>
+                          <input
+                            type="text"
+                            id="tweetUrl"
+                            // placeholder="Project Name"
+                            className="form-control"
+                            value={SolAmount}
+                            pattern="[0-9]*"
+                            onChange={(e) =>
+                              setSolAmount((v) =>
+                                e.target.validity.valid ? e.target.value : v
+                              )
+                            }
+                            // onChange={(e) => setSolAmount(e.target.value)}
+                          />
+                        </div>
+                        <Button
+                          onClick={handleTransferSol}
+                          sx={{
+                            backgroundColor: "primary",
+                            marginBottom: "20px",
+                          }}
+                          variant="contained"
+                        >
+                          Transfer Sols
+                        </Button>
+
+                        <div className="mb-3">
+                          <label className="form-label">
+                            Add Spl Token Amount
+                          </label>
+                          <Tooltip
+                            // title="Enter Twitter username without '@' sign, and without spaces."
+                            placement="top"
+                          >
                             <input
                               type="text"
                               id="tweetUrl"
-                              // placeholder="Project Name"
+                              // placeholder="Project Twitter Username"
                               className="form-control"
-                              value={SolAmount}
+                              value={SplToken}
                               pattern="[0-9]*"
+                              // onChange={(e) => setSplToken(e.target.value)}
                               onChange={(e) =>
-                                setSolAmount((v) =>
+                                setSplToken((v) =>
                                   e.target.validity.valid ? e.target.value : v
                                 )
                               }
-                            // onChange={(e) => setSolAmount(e.target.value)}
                             />
-                          </div>
-                          <Button
-                            onClick={handleTransferSol}
-                            sx={{
-                              backgroundColor: "primary",
-                              marginBottom: "20px",
-                            }}
-                            variant="contained"
-                          >
-                            Transfer Sols
-                          </Button>
-
-                          <div className="mb-3">
-                            <label className="form-label">
-                              Add Spl Token Amount
-                            </label>
-                            <Tooltip
-                              // title="Enter Twitter username without '@' sign, and without spaces."
-                              placement="top"
-                            >
-                              <input
-                                type="text"
-                                id="tweetUrl"
-                                // placeholder="Project Twitter Username"
-                                className="form-control"
-                                value={SplToken}
-                                pattern="[0-9]*"
-                                // onChange={(e) => setSplToken(e.target.value)}
-                                onChange={(e) =>
-                                  setSplToken((v) =>
-                                    e.target.validity.valid ? e.target.value : v
-                                  )
-                                }
-                              />
-                            </Tooltip>
-                          </div>
-                          <Button variant="contained" onClick={handleTransferSpl}>
-                            Transfer SPL
-                          </Button>
-                        </form>
-                      </Typography>
-                    </div>
-                  </>
-                ) : index === 3 ? (
-                  <>
-                    <Typography
-                      sx={
-                        ispoolSuccessful
-                          ? {
+                          </Tooltip>
+                        </div>
+                        <Button variant="contained" onClick={handleTransferSpl}>
+                          Transfer SPL
+                        </Button>
+                      </form>
+                    </Typography>
+                  </div>
+                </>
+              ) : index === 2 ? (
+                <>
+                  <Typography
+                    sx={
+                      ispoolSuccessful
+                        ? {
                             pointerEvents: "none",
                             width: "85%",
                             margin: "auto",
                           }
-                          : { width: "85%", margin: "auto" }
-                      }
-                    >
-                      {/* <ReadAllInvoices /> */}
-                      {/* <ReadAllInvoices /> */}
-                      {ProjectID && (
-                        <AddPool
-                          projectId={ProjectID}
-                          setPoolID={setPoolID}
-                          setpoolSuccessfully={setpoolSuccessfully}
-                        />
-                      )}
-                    </Typography>
-                  </>
-                ) : isRaid && index === 4 ? (
-                  <>
-                    <Typography
-                      sx={
-                        istweetSuccessful
-                          ? {
+                        : { width: "85%", margin: "auto" }
+                    }
+                  >
+                    {/* <ReadAllInvoices /> */}
+                    {/* <ReadAllInvoices /> */}
+                    {ProjectID && (
+                      <AddPool
+                        projectId={ProjectID}
+                        setPoolID={setPoolID}
+                        setpoolSuccessfully={setpoolSuccessfully}
+                      />
+                    )}
+                  </Typography>
+                </>
+              ) : isRaid && index === 3 ? (
+                <>
+                  <Typography
+                    sx={
+                      istweetSuccessful
+                        ? {
                             width: "85%",
                             margin: "auto",
                             pointerEvents: "none",
                           }
-                          : { width: "85%", margin: "auto" }
-                      }
-                    >
-                      {poolID && (
-                        <AddTweet
-                          poolID={poolID}
-                          settweetSuccessfully={settweetSuccessfully}
-                        />
-                      )}
-                    </Typography>
-                  </>
-                ) : !isRaid && index === 4 ? (
-                  <>
-                    <div
-                      className="container my-5 p-3 border border-1 border-info rounded-3"
-                      style={{ maxWidth: "85%", margin: "auto" }}
-                    >
-                      <Button variant="contained" onClick={handlerPreview}>
-                        Preview
-                      </Button>
-                    </div>
-                  </>
-                ) : index === 5 ? (
-                  <>
-                    <div
-                      className="container my-5 p-3 border border-1 border-info rounded-3"
-                      style={{ maxWidth: "85%", margin: "auto" }}
-                    >
-                      <Button variant="contained" onClick={handlerPreview}>
-                        Preview
-                      </Button>
-                    </div>
-                  </>
-                ) : null}
+                        : { width: "85%", margin: "auto" }
+                    }
+                  >
+                    {poolID && (
+                      <AddTweet
+                        poolID={poolID}
+                        settweetSuccessfully={settweetSuccessfully}
+                      />
+                    )}
+                  </Typography>
+                </>
+              ) : !isRaid && index === 4 ? (
+                <>
+                  <div
+                    className="container my-5 p-3 border border-1 border-info rounded-3"
+                    style={{ maxWidth: "85%", margin: "auto" }}
+                  >
+                    <Button variant="contained" onClick={handlerPreview}>
+                      Preview
+                    </Button>
+                  </div>
+                </>
+              ) : index === 3 ? (
+                <>
+                  <div
+                    className="container my-5 p-3 border border-1 border-info rounded-3"
+                    style={{ maxWidth: "85%", margin: "auto" }}
+                  >
+                    <Button variant="contained" onClick={handlerPreview}>
+                      Preview
+                    </Button>
+                  </div>
+                </>
+              ) : null}
 
               <Box sx={{ width: "80%", margin: "auto" }}>
                 <div sx={{}}>

@@ -41,6 +41,11 @@ const poolSchema = schema({
 
 const invoiceSchema = schema({
   pool: [poolSchema],
+  visibility:{
+    type: Boolean,
+    required: false,
+    default: true
+  },
   projectName: {
     type: String,
     required: true,
@@ -51,7 +56,6 @@ const invoiceSchema = schema({
   },
   discordForProjectContact: {
     type: String,
-    required: true,
   },
   invoiceDate: {
     type: String,

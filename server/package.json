@@ -33,6 +33,7 @@
     "nodemailer": "^6.7.2",
     "passport": "^0.4.0",
     "passport-twitter": "^1.0.4",
+    "path": "^0.12.7",
     "puppeteer": "^13.0.1",
     "tweetnacl": "^1.0.3",
     "twitter-api-v2": "^1.12.5",

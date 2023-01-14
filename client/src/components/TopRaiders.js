@@ -8,10 +8,29 @@ import Avatar from "@mui/material/Avatar";
 import { red } from "@mui/material/colors";
 import SingleRaider from "./SingleRaider";
 
-const TopRaiders = ({ currentUser,data,
+const TopRaiders = ({
+  currentUser,
+  data,
   userNotIncludeProjectsForMention,
 }) => {
-  const arr = [1, 2, 3,];
+  const arr = [1, 2, 3];
+
+  // const user = userNotIncludeProjectsForMention?.filter(
+  //   (elem) => elem.projectTwitterUsername == currentUser
+  // );
+  // console.log("mycurrentuser", userNotIncludeProjectsForMention);
+  // console.log("mycurrentuser", data[0].projectTwitterUsername);
+  // console.log("mycurrentuser", user);
+  // console.log("mycurrentuser", currentUser);
+  // console.log("userfilter", currentUser.rewardStatus[0].tweetText);
+  // if (data && currentUser) {
+  //   const found = data.find(
+  //     (element) => element.projectTwitterUsername == currentUser
+  //   );
+
+  //   console.log("mycurrentuser", found);
+  // }
+
   return (
     <>
       <Typography
@@ -31,21 +50,14 @@ const TopRaiders = ({ currentUser,data,
           }}
         >
           <Typography variant="h5" color="white" className="top-raiders">
-            Top Raiders
+            Rewards
           </Typography>
           <Icon color="white" icon="teenyicons:adjust-horizontal-outline" />
         </Typography>
 
-        {  currentUser &&
-          userNotIncludeProjectsForMention &&
-          userNotIncludeProjectsForMention?.map((data, i) => (
-            <SingleRaider
-              key={i}
-              currentUsers={currentUser}
-              datas={data}
-              mention={true}
-              data={data}
-            />
+        {currentUser &&
+          currentUser.rewardStatus.map((data) => (
+            <SingleRaider currentUsers={data} />
           ))}
         <Typography style={{ textAlign: "center", marginTop: "20px" }}>
           <Button

@@ -3,6 +3,7 @@ const passport = require("passport");
 const cookieSession = require("cookie-session");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+var path = require("path");
 const User = require("./model/userModel");
 require("./services/passport");
 require("dotenv").config();
@@ -48,6 +49,11 @@ app.use("/api/crud/user", AuthCheck, UserCrudRoute);
 app.use("/wallet", AuthCheck, CreateWalletRoute);
 app.use("/reward", AuthCheck, reward);
 app.use("/tweet", AuthCheck, tweets);
+
+app.use(express.static("./build"));
+app.all("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "build", "index.html"));
+});
 
 async function setUser(req, res, next) {
   const twitterId = req.body.twitterId;

@@ -7,7 +7,7 @@ import { Icon } from "@iconify/react";
 import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
 import CardHeader from "@mui/material/CardHeader";
-import DashboardIcon from '@mui/icons-material/Dashboard';
+import DashboardIcon from "@mui/icons-material/Dashboard";
 import Avatar from "@mui/material/Avatar";
 import "../../../App.css";
 
@@ -85,7 +85,7 @@ const SidebarTemplate = ({ currentUser, navArray, setShowSideBar }) => {
                   <li
                     className="nav-item py-2 sidebar-links"
                     key={navElement.href}
-                  // onClick={() => setShowSideBar(false)}
+                    // onClick={() => setShowSideBar(false)}
                   >
                     <NavLink
                       sx={{ color: "white" }}
@@ -99,18 +99,41 @@ const SidebarTemplate = ({ currentUser, navArray, setShowSideBar }) => {
                     >
                       <Typography style={{ fontSize: "30px" }}>
                         {index === 0 ? (
-                          <div className="nav1234">  <Icon icon="bx:user" />
-                            <Typography sx={{paddingLeft:"5px"}}>Projects</Typography></div>
-
-
+                          <div className="nav1234">
+                            {" "}
+                            <Icon icon="bx:user" />
+                            <Typography sx={{ paddingLeft: "5px" }}>
+                              Projects
+                            </Typography>
+                          </div>
                         ) : index === 1 ? (
                           <div className="nav1234">
                             <Icon icon="codicon:project" />
-                            <Typography sx={{paddingLeft:"5px"}}>Create</Typography></div>
+                            <Typography sx={{ paddingLeft: "5px" }}>
+                              Create
+                            </Typography>
+                          </div>
+                        ) : index === 2 ? (
+                          <div className="nav1234">
+                            <Icon icon="material-symbols:dashboard" />
+                            <Typography sx={{ paddingLeft: "5px" }}>
+                              Dashboard
+                            </Typography>
+                          </div>
+                        ) : index === 3 ? (
+                          <div className="nav1234">
+                            <Icon icon="codicon:project" />
+                            <Typography sx={{ paddingLeft: "5px" }}>
+                              New User
+                            </Typography>
+                          </div>
                         ) : (
                           <div className="nav1234">
-                          <Icon icon="material-symbols:dashboard" />
-                          <Typography sx={{paddingLeft:"5px"}}>Dashboard</Typography></div>
+                            <Icon icon="material-symbols:dashboard" />
+                            <Typography sx={{ paddingLeft: "5px" }}>
+                              All Users
+                            </Typography>
+                          </div>
                         )}
                       </Typography>
                       {/* <Typography> {navElement.name}</Typography> */}

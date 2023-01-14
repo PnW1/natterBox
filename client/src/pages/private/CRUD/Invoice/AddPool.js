@@ -169,7 +169,7 @@ const AddPool = ({ auth, projectId, setPoolID, setpoolSuccessfully }) => {
           !endTime ||
           category.length !== 7 ||
           !rewardFrequency,
-          !splToken || splToken === "OTHER")
+        !splToken || splToken === "OTHER")
       ) {
         toast.warning("No empty values allowed");
         navigate(0);
@@ -250,6 +250,8 @@ const AddPool = ({ auth, projectId, setPoolID, setpoolSuccessfully }) => {
         if (projectId) {
           setPoolID(res?.data?.invoiceFound?.pool[0]._id);
           setpoolSuccessfully(true);
+
+          toast.success("Submitted Sucessfully");
         }
         toast.success(data.msg);
         if (!projectId) {
@@ -307,8 +309,8 @@ const AddPool = ({ auth, projectId, setPoolID, setpoolSuccessfully }) => {
               value={
                 stateValues.startTime
                   ? moment
-                    .unix(stateValues.startTime)
-                    .format(moment.HTML5_FMT.DATETIME_LOCAL)
+                      .unix(stateValues.startTime)
+                      .format(moment.HTML5_FMT.DATETIME_LOCAL)
                   : moment().format(moment.HTML5_FMT.DATETIME_LOCAL)
               }
               onChange={(event) =>
@@ -332,8 +334,8 @@ const AddPool = ({ auth, projectId, setPoolID, setpoolSuccessfully }) => {
               value={
                 stateValues.endTime
                   ? moment
-                    .unix(stateValues.endTime)
-                    .format(moment.HTML5_FMT.DATETIME_LOCAL)
+                      .unix(stateValues.endTime)
+                      .format(moment.HTML5_FMT.DATETIME_LOCAL)
                   : moment().format(moment.HTML5_FMT.DATETIME_LOCAL)
               }
               onChange={(event) =>

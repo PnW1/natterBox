@@ -40,7 +40,7 @@ const idl = JSON.parse(
 
 anchor.setProvider(
   anchor.Provider.local(
-    process.env.REACT_APP_SOLANA_URL
+    "https://green-polished-fire.solana-mainnet.quiknode.pro/0b8461a7cacccb991a0872d883157a01b7698b93/"
   )
 );
 
@@ -50,7 +50,7 @@ anchor.setProvider(
 // });
 
 var solConnection = new web3.Connection(
-  process.env.REACT_APP_SOLANA_URL,
+  "https://green-polished-fire.solana-mainnet.quiknode.pro/0b8461a7cacccb991a0872d883157a01b7698b93/",
   {
     commitment: "confirmed",
     confirmTransactionInitialTimeout: 12000,
@@ -1030,12 +1030,12 @@ const mentionClaim = async (req, res) => {
             userTweetRecord.data.created_at
           ).unix();
 
-          if (liveTweetCreatedAt + rewardFrequencyInSecond > moment().unix()) {
-            return res.send({
-              msg: "Please Wait... after tweeting a tweet",
-              type: "Failed",
-            });
-          }
+          // if (liveTweetCreatedAt + rewardFrequencyInSecond > moment().unix()) {
+          //   return res.send({
+          //     msg: "Please Wait... after tweeting a tweet",
+          //     type: "Failed",
+          //   });
+          // }
           userStatusUpdated = await User.findOneAndUpdate(
             {
               twitterId: twitterId,

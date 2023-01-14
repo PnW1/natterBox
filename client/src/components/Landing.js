@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import axios from "axios";
+import { toast } from "react-toastify";
+
 import {
   WalletMultiButton,
   WalletDisconnectButton,
@@ -133,6 +135,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Landing = (props) => {
+  // console.log("props: ", props);
   const [dispatch] = useDispatchFunc();
   const navigate = useNavigate();
 
@@ -172,11 +175,12 @@ const Landing = (props) => {
       });
       navigate("/app/dashboard");
     } else {
-      // toast.error(data.msg);
+      toast.error(data.msg);
     }
   };
 
   const handleCheck = (value) => {
+    console.log("value: ", value);
     if (value == 2) {
       setIsTrue(value);
     } else if (value == 3) {
@@ -187,8 +191,22 @@ const Landing = (props) => {
       setIsTrue(value);
     } else if (value == 6) {
       setIsTrue(value);
+    } else if (value == 1) {
+      setIsTrue(value);
     }
   };
+
+  useEffect(() => {
+    if (istrue == 5) {
+      setTimeout(() => {
+        setIsTrue(6);
+      }, 1000);
+    } else if (istrue == 6) {
+      setTimeout(() => {
+        signinUser();
+      }, 1000);
+    }
+  }, [istrue]);
 
   const classes = useStyles();
   return (
@@ -348,7 +366,7 @@ const Landing = (props) => {
                       <span style={{ marginRight: "5px" }}>
                         <Icon color="#47DDFC" icon="akar-icons:twitter-fill" />
                       </span>
-                      Connect Your Twitter
+                      Connect Your Twitter...
                     </Link>
                   )}
                 </div>
@@ -787,7 +805,7 @@ const Landing = (props) => {
                   }}
                   // to="/Signup"
                 >
-                  {publicKey && props?.auth ? (
+                  {publicKey && props.auth ? (
                     <Button
                       className="registeration"
                       variant="contained"
@@ -820,6 +838,7 @@ const Landing = (props) => {
   );
 };
 function mapStateToProps(state) {
+  // console.log("State|:", state);
   return { auth: state.auth };
 }
 export default connect(mapStateToProps)(Landing);
