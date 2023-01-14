@@ -33,7 +33,7 @@ export default function ThreadModal({
   allReplyOfATweet,
   data,
   openModal,
-  handleModal,
+  handleModal,/////////
  
 }) {
   const [open, setOpen] = React.useState();
@@ -66,6 +66,7 @@ export default function ThreadModal({
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
+        ///////////
         <Box sx={style} className="flexcroll">
           <Typography
             sx={{
