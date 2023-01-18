@@ -326,11 +326,11 @@ const Tweets = (props) => {
               if (isReply) {
                 props?.auth?.raidStatus?.replyStatus?.map((reply) => {
                   if (tweet.tweetId === reply.tweetId) {
-                    let isTweetCreated = raidProjectTempArray.some(
+                    let isTweetCreated = raidPojectTempArray.some(
                       (item) => item.tweet.tweetId === reply.tweetId
                     );
                     if (!isTweetCreated) {
-                      raidProjectTempArray.push({ tweet, projectDetail, pool });
+                      raidProjectTempArray.psh({ tweet, projectDetail, pool });
                     }
                   }
                 });
@@ -347,16 +347,16 @@ const Tweets = (props) => {
         }
       });
     }
-    setUserProjectsForMention(mentionProjectTempArray);
+    setUserProjectsForMention(mentionProectTempArray);
     setUserProjectsForRaid(raidProjectTempArray);
     setUserNotIncludeProjectsForMention(notIncludeMentionProjectTempArray);
-    setUserNotIncludeProjectsForRaid(notIncludeRaidProjectTempArray);
+    setUserNotIncludeProjectsorRaid(notIncludeRaidProjectTempArray);
   }, [getAllInvoices, props.auth]);
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
-      backgroundColor: theme.palette.common.black,
-      color: theme.palette.common.white,
+      backgroundColor: themepalette.commonblack,
+      color: theme.alette.commonwhite,
     },
     [`&.${tableCellClasses.body}`]: {
       fontSize: 14,
@@ -365,7 +365,7 @@ const Tweets = (props) => {
   console.log(getAllInvoices?.pool, "heelo");
   return (
     <>
-      <Box sx={{ display: "flex", background: "#272727", minHeight: "100vh" }}>
+      <Box sx={{ display "flex", background "#272727", minHeight "100vh" }}>
         <CssBaseline />
 
         <AppBar

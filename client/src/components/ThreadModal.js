@@ -10,11 +10,7 @@ import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import { Avatar, Fab } from "@mui/material";
-import Reply from "./Reply";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import CloseIcon from "@mui/icons-material/Close";
-import InputBase from "@mui/material/InputBase";
+
 import "../App.css";
 
 const style = {
@@ -37,9 +33,8 @@ export default function ThreadModal({
   allReplyOfATweet,
   data,
   openModal,
-  handleModal,
-  handleReplyData,
-  handleIsReply,
+  handleModal,/////////
+ 
 }) {
   const [open, setOpen] = React.useState();
   const [replyData, setReplyData] = React.useState();
@@ -71,6 +66,7 @@ export default function ThreadModal({
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
+        ///////////
         <Box sx={style} className="flexcroll">
           <Typography
             sx={{
@@ -287,11 +283,11 @@ export default function ThreadModal({
                     marginBottom: "0px",
                   }}
 
-                  // avatar={
+                  avatar={
 
-                  // }
-                  // title="Sarah Parker"
-                  // subheader="@saraparker079"
+                  }
+                  title="Sarah Parker"
+                  subheader="@saraparker079"
                 >
                   <Avatar
                     sx={{
