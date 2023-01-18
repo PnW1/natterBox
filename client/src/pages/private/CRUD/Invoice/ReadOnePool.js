@@ -179,6 +179,7 @@ const ReadOneInvoice = ({ auth }) => {
           userPublicKey: user.userPublicKey,
           tweetIds: user.tweetId,
           userId: user.userId,
+          rewardAmount: parseInt(user.reawrdAmount)
         });
       });
 

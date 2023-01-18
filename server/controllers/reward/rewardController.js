@@ -1,3 +1,4 @@
+const fetch = require("node-fetch");
 const mongoose = require("mongoose");
 const moment = require("moment");
 const Reward = require("../../model/reward");
@@ -101,10 +102,10 @@ const getUserRewardDetail = async (req, res) => {
   }
 };
 
-const getRecords = async (req, res) => {
+const getRecords = async (req, res) => { //Check here
   try {
     const { projectName, mintAddress, creator } = req.params;
-    var limit = 50;
+    var limit = 8; // 50
     var reward = await Reward.find({
       users: {
         $elemMatch: {
@@ -115,20 +116,46 @@ const getRecords = async (req, res) => {
         },
       },
     });
+    // console.log("reward: ",reward[0].users);
     let tempArray = [];
     if (reward && reward.length > 0) {
-      reward.map((data) => {
-        if (data.users && data.users.length > 0) {
-          data.users.map((user) => {
-            if (user.isPaid === false) {
-              if (tempArray && tempArray.length < limit) {
-                tempArray.push(user);
+     await Promise.all(
+        reward.map(async(data) => {
+          if (data.users && data.users.length > 0) {
+          await  Promise.all(
+            data.users.filter((user)=>user.isPaid === false).map(async (user, key) => {
+              if (user.isPaid === false) { // Change later to false
+                console.log("key: ",key);
+                if (key < limit ) {
+                  // console.log("tempArray.length: ",tempArray.length, tempArray)
+                  const headers = {
+                    Authorization: `Bearer ${process.env.BEARER_TOKEN}`,
+                  };
+                  // console.log("user.tweetId: ",user.tweetId);
+                  let response = await fetch(
+                    `https://api.twitter.com/2/tweets/${user.tweetId}?expansions=author_id&user.fields=name&tweet.fields=created_at`,
+                    // `https://api.twitter.com/2/tweets/1611352800889573376?expansions=author_id&user.fields=name&tweet.fields=created_at`,
+                    {
+                      headers,
+                    }
+                  );
+                  const jsonResponse = await response.json();
+                  // console.log("jsonResponse: ", jsonResponse);
+                  
+                  if (jsonResponse.data){
+                    // console.log("Check")
+                    tempArray.push(user);
+                  }
+                }
               }
-            }
-          });
-        }
-      });
-      return res.send({ reward: tempArray });
+            }));
+          }
+        }));
+      Promise.all(tempArray).then(()=>{
+        console.log("tempArray: ",tempArray.length);
+        return res.send({ reward: tempArray });
+        
+      })
     } else {
       return res.send("No data found");
     }
@@ -274,7 +301,22 @@ const updateRewardRecord = async (req, res) => {
     }
     var reward;
     const { projectName, rewardToken, usersArray, isRaid } = req.body;
+    // console.log("usersArray: ",usersArray);
+    const rewardTokenPublicKey = new PublicKey(rewardToken);
+    const tokenInfo = await solConnection.getTokenSupply(rewardTokenPublicKey);
+    console.log("tokenInfo: ",tokenInfo);
+    let tokenDecimals = "1";
+
+    for(i=0; i < tokenInfo.value.decimals; i++){
+      tokenDecimals+="0";
+    }
+    console.log("tokenDecimals: ", tokenDecimals);
+
+    
+
+    // return;
     for (let i = 0; i < usersArray.length; i++) {
+
       reward = await Reward.findOneAndUpdate(
         {
           users: {
@@ -285,17 +327,17 @@ const updateRewardRecord = async (req, res) => {
               mintAddress: rewardToken,
               isRaid,
               invoiceCreator: req.userObj.id,
-              isPaid: false,
+              isPaid: false, //false
             },
           },
         },
         {
           $set: {
-            "users.$.isPaid": true,
+            "users.$.isPaid": true, //true
           },
         },
         {
-          new: true,
+          new: true, //true
         }
       );
 
@@ -315,7 +357,6 @@ const updateRewardRecord = async (req, res) => {
             },
           ],
         },
-
         {
           $set: {
             "rewardStatus.$.isRewardpaid": true,
@@ -324,9 +365,11 @@ const updateRewardRecord = async (req, res) => {
         }
       );
     }
+    // return;
     let wallet = await Wallet.findOne({
       accountHolder: mongoose.Types.ObjectId(req.userObj.id),
     });
+    
     if (wallet) {
       var arrayString = wallet.privateKey.split(",");
       for (i = 0; i < arrayString.length; i++) {
@@ -340,9 +383,14 @@ const updateRewardRecord = async (req, res) => {
       var usersPublicKey = [];
       const mintAddress = new PublicKey(rewardToken);
       for (i = 0; i < usersArray.length; i++) {
-        usersPublicKey.push(new PublicKey(usersArray[i].userPublicKey));
+        console.log("usersArray[i].userPublicKey: ",usersArray[i].userPublicKey, i)
+        if(usersArray[i].userPublicKey !== undefined){
+          usersPublicKey.push({publicKey: new PublicKey(usersArray[i].userPublicKey), amount: usersArray[i].rewardAmount});
+        }
       }
       const users = usersPublicKey;
+      console.log("users: ",users.length, users);
+      // return;
 
       let clientAta = (
         await PublicKey.findProgramAddress(
@@ -367,10 +415,13 @@ const updateRewardRecord = async (req, res) => {
       );
 
       for (i = 0; i < users.length; i++) {
+        if(users[i].publicKey === undefined){
+          i++;
+        }
         let userAta = (
           await PublicKey.findProgramAddress(
             [
-              users[i].toBuffer(),
+              users[i].publicKey.toBuffer(),
               TOKEN_PROGRAM_ID.toBuffer(),
               mintAddress.toBuffer(), // mint address
             ],
@@ -381,19 +432,19 @@ const updateRewardRecord = async (req, res) => {
         tx.feePayer = oldWallet.publicKey;
 
         const userAtaCheck = await solConnection.getTokenAccountsByOwner(
-          users[i],
+          users[i].publicKey,
           { mint: mintAddress }
         );
 
         if (userAtaCheck.value.length === 0) {
-          console.log(users[i].toString(), "no ata");
+          console.log(users[i].publicKey.toString(), "no ata");
           tx.add(
             Token.createAssociatedTokenAccountInstruction(
               ASSOCIATED_TOKEN_PROGRAM_ID,
               TOKEN_PROGRAM_ID,
               mintAddress,
               userAta,
-              users[i],
+              users[i].publicKey,
               oldWallet.publicKey
             )
           );
@@ -411,10 +462,13 @@ const updateRewardRecord = async (req, res) => {
             userAta,
             oldWallet.publicKey,
             [oldWallet],
-            100_000
+            // 100_000,
+            users[i].amount * parseInt(tokenDecimals)
           )
         );
       }
+      
+
 
       const txID = await solConnection.sendTransaction(tx, [oldWallet]);
 

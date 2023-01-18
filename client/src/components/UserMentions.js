@@ -73,8 +73,10 @@ const UserMentions = ({ currentUser, data }) => {
     }
   };
   const checkClientMentionByOthers = async () => {
+    console.log("currentUser: ",currentUser)
+    console.log("data: ",data)
     const res = await axios.get(
-      `${process.env.REACT_APP_SERVERURL}/tweet/getUserMentions/${data?.projectTwitterUsername}`,
+      `${process.env.REACT_APP_SERVERURL}/tweet/getUserMentions/${currentUser?.userName}/${data?.projectTwitterUsername}`,
       {
         headers: {
           Authorization: `BEARER ${token}`,

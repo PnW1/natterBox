@@ -90,15 +90,21 @@ const getUserMentions = async (req, res) => {
       .then((response) => response.json())
       .then((data) => {
         if (data && data.data && data.data[0].id) {
+          console.log("data: ", data);
           fetch(
-            `https://api.twitter.com/2/users/${data.data[0].id}/mentions?expansions=author_id&user.fields=name&tweet.fields=created_at`,
+            `https://api.twitter.com/2/users/${data.data[0].id}/tweets?expansions=author_id&user.fields=name&tweet.fields=created_at&max_results=100`,
+            // `https://api.twitter.com/2/users/${data.data[0].id}/mentions?expansions=author_id&user.fields=name`,
             {
               headers,
             }
           )
             .then((response) => response.json())
-            .then((data) => {
-              return res.send(data);
+            .then((data2) => {
+              const newData = data2.data.filter((tweet) => {
+                return tweet.text.includes(`${req.params.projectName}`)
+              })
+              console.log("newData: ", newData)
+              return res.send({data: newData,includes: data2.includes,meta:data2.meta});
             });
         }
       });
@@ -947,7 +953,8 @@ const mentionClaim = async (req, res) => {
     if (tweetData.length > 0) {
       var numberOfFollowes = 0;
       var poolCategory = [];
-      var rewardFrequencyInSecond = 86400;
+      // var rewardFrequencyInSecond = 86400;
+      var rewardFrequencyInSecond = 1800;
       var projectStartTime = 0;
       var rewardAmount = 0;
       const headers = {
@@ -992,6 +999,25 @@ const mentionClaim = async (req, res) => {
             rewardAmount = poolCategory[6];
           }
         }
+
+        // let checkUserEntry = await User.findOne({
+        //   $and: [
+        //     { _id: id },
+        //     { projectName: projectName },
+        //     // { "rewardStatus.tweetId": req.params.tweetId },
+        //     { "rewardStatus.projectName": projectName },
+        //     { "rewardStatus.rewardToken": rewardToken },
+        //   ],
+        // });
+
+        // console.log("checkUserEntry: ",checkUserEntry);
+        // if (checkUserEntry){
+        //   return res.send({
+        //     msg: "You have already applied for claim for this project.",
+        //     type: "Failed",
+        //   });
+        // }
+
         let userPoolData = await User.findOne({
           $and: [
             { _id: id },
@@ -1001,6 +1027,7 @@ const mentionClaim = async (req, res) => {
             { "rewardStatus.rewardToken": rewardToken },
           ],
         });
+        
         if (!userPoolData) {
           if (projectStartTime + rewardFrequencyInSecond > moment().unix()) {
             return res.send({

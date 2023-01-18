@@ -265,6 +265,7 @@ const initializeUserPool = async (req, res) => {
     });
     if (walletObject) {
       var arrayString = walletObject.privateKey.split(",");
+      console.log("walletObject.privateKey: ",walletObject.privateKey);
       for (i = 0; i < arrayString.length; i++) {
         arrayString[i] = parseInt(arrayString[i]);
       }
@@ -386,9 +387,13 @@ const initializeUserPool = async (req, res) => {
 
       // const txNew = new Transaction();
       // txNew.recentBlockhash = blockhashResponse.value.blockhash;
+      
 
       // txNew.feePayer = oldWallet.publicKey;
       // if (instructions.length > 0) txNew.add(instructions);
+      console.log("Instructions: ", instructions)
+      console.log("Funds: ",funds)
+      console.log("oldWallet: ",oldWallet.toString())
       const tx = await program.rpc.initializeUserPool(
         poolType,
         projectName,

@@ -16,6 +16,7 @@ const MainScreenTemplate = ({ role }) => {
     );
 
     if (res?.data?.invoicesFound) {
+      console.log("Res: ", res.data)
       // const AllInvoices = [
       //   ...new Map(
       //     res?.data?.invoicesFound.map((m) => [m.invoiceCreater?.twitterId, m])
@@ -25,6 +26,7 @@ const MainScreenTemplate = ({ role }) => {
       const UserInvoices = res?.data?.invoicesFound?.filter(
         (data) => data?.invoiceCreater?.twitterId == twitterId
       );
+      console.log("UserInvoices: ",UserInvoices)
 
       setGetAllInvoices(
         res?.data?.invoicesFound?.map(
@@ -32,7 +34,7 @@ const MainScreenTemplate = ({ role }) => {
         )
       );
       setgetCurrentUserInvoice(
-        UserInvoices?.map((current) => current.invoiceCreater.rewardStatus)
+        UserInvoices?.map((current) => {console.log("current: ",current); return current.invoiceCreater.rewardStatus})
       );
     } else {
       alert("No Tweet Found");

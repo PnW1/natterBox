@@ -621,7 +621,7 @@ const Tweets = (props) => {
                           width="100%"
                           textAlign="center"
                         >
-                          NOTE: Please wait for 24 hours before applying for
+                          NOTE: Please wait for 2 minutes before applying for
                           Claim on your Tweet.
                         </Typography>
                       </Box>

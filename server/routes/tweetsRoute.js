@@ -5,7 +5,7 @@ var router = express.Router();
 
 router.get("/getUserIdFromName/:username", TweetController.getUserIdFromName);
 
-router.get("/getUserMentions/:username", TweetController.getUserMentions);
+router.get("/getUserMentions/:username/:projectName", TweetController.getUserMentions);
 
 router.get("/getUserFollowers/:userId", TweetController.getUserFollowers);
 
